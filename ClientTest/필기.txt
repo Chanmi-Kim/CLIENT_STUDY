@@ -1,4 +1,4 @@
-ClientTest > WebContent > 필기.txt
+﻿ClientTest > WebContent > 필기.txt
 
 1. 워크 스페이스 생성
    - D:\class\client 폴더 생성
@@ -40,28 +40,3 @@ ClientTest > WebContent > 필기.txt
 	--------------------------------
 	- 골든피시
 	- 기타 등등..
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
