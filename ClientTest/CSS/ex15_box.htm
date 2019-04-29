@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+	
+	#tblList > tr > td {  }
+	#tblList > tbody > tr > td { }
+	
+	#tblList td { }
+	
+	
+	#tblList {
+		border: 1px solid #CCCCCC;
+		border-collapse: collapse;
+		width: 800px;
+	}
+	
+	#tblList #col1 { width: 50px; }
+	#tblList #col2 { width: 500px; }
+	#tblList #col3 { width: 100px; }
+	#tblList #col4 { width: 100px; }
+	#tblList #col5 { width: 50px; }
+	
+	#tblList td, #tblList th {
+		border: 1px solid #CCC;
+		color: #444;
+		text-align: center;
+	}
+	
+</style>
+</head>
+<body>
+	<!-- ex15_box.htm -->
+	
+	<h1>게시판</h1>
+	
+	<!-- table#tblList.table -->
+	<table id="tblList" class="table">
+		<!-- tr>th*5 -->
+		<thead>
+			<tr>
+				<th id="col1">번호</th>
+				<th id="col2">제목</th>
+				<th id="col3">이름</th>
+				<th id="col4">날짜</th>
+				<th id="col5">읽음</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="5">위의 테이블을 오라클 서버에 저장되었습니다.</td>
+			</tr>
+		</tfoot>
+		<!-- (tr>(td{$$$}+(td>lorem5)+(td>lorem1)+(td{2019-04-$$})+(td{$$})))*20 -->
+		<tbody>
+			<tr>
+				<td>001</td>
+				<td>Lorem ipsum dolor sit amet.</td>
+				<td>Lorem.</td>
+				<td>2019-04-01</td>
+				<td>01</td>
+			</tr>
+			<tr>
+				<td>002</td>
+				<td>Libero mollitia quo esse doloremque.</td>
+				<td>Quisquam!</td>
+				<td>2019-04-02</td>
+				<td>02</td>
+			</tr>
+			<tr>
+				<td>003</td>
+				<td>Eligendi corporis nobis voluptatem sapiente. lkfdajfldjsadlkflasj asdlkjflkafsdj lkjasd flasdjf sd</td>
+				<td>Ex!</td>
+				<td>2019-04-03</td>
+				<td>03</td>
+			</tr>
+			<tr>
+				<td>004</td>
+				<td>Error magnam accusantium hic tempora.</td>
+				<td>Perferendis.</td>
+				<td>2019-04-04</td>
+				<td>04</td>
+			</tr>
+			<tr>
+				<td>005</td>
+				<td>Sed optio sapiente eveniet iusto.</td>
+				<td>Recusandae?</td>
+				<td>2019-04-05</td>
+				<td>05</td>
+			</tr>
+			<tr>
+				<td>006</td>
+				<td>Iusto quae excepturi alias ipsa.</td>
+				<td>Quaerat.</td>
+				<td>2019-04-06</td>
+				<td>06</td>
+			</tr>
+			<tr>
+				<td>007</td>
+				<td>Laudantium expedita autem sequi quod.</td>
+				<td>Ullam.</td>
+				<td>2019-04-07</td>
+				<td>07</td>
+			</tr>
+			<tr>
+				<td>008</td>
+				<td>Repellat officiis veritatis asperiores consectetur.</td>
+				<td>Modi!</td>
+				<td>2019-04-08</td>
+				<td>08</td>
+			</tr>
+			<tr>
+				<td>009</td>
+				<td>Unde quidem officia impedit error?</td>
+				<td>Dolore.</td>
+				<td>2019-04-09</td>
+				<td>09</td>
+			</tr>
+			<tr>
+				<td>010</td>
+				<td>Possimus voluptatem eveniet eius officiis.</td>
+				<td>Praesentium!</td>
+				<td>2019-04-10</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>011</td>
+				<td>Suscipit excepturi dignissimos sequi porro.</td>
+				<td>Eligendi.</td>
+				<td>2019-04-11</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>012</td>
+				<td>Laudantium iure aperiam voluptates quo!</td>
+				<td>Ad!</td>
+				<td>2019-04-12</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>013</td>
+				<td>Incidunt beatae ratione vel assumenda.</td>
+				<td>Magnam.</td>
+				<td>2019-04-13</td>
+				<td>13</td>
+			</tr>
+			<tr>
+				<td>014</td>
+				<td>Consectetur quibusdam dolore temporibus dignissimos!</td>
+				<td>Itaque?</td>
+				<td>2019-04-14</td>
+				<td>14</td>
+			</tr>
+			<tr>
+				<td>015</td>
+				<td>Laboriosam natus quisquam blanditiis molestias.</td>
+				<td>Ipsam.</td>
+				<td>2019-04-15</td>
+				<td>15</td>
+			</tr>
+			<tr>
+				<td>016</td>
+				<td>Blanditiis vero impedit ipsam. Voluptatum.</td>
+				<td>Ipsa.</td>
+				<td>2019-04-16</td>
+				<td>16</td>
+			</tr>
+			<tr>
+				<td>017</td>
+				<td>Voluptates alias earum neque dolores.</td>
+				<td>Sint.</td>
+				<td>2019-04-17</td>
+				<td>17</td>
+			</tr>
+			<tr>
+				<td>018</td>
+				<td>Doloremque quisquam quaerat sequi alias.</td>
+				<td>Provident.</td>
+				<td>2019-04-18</td>
+				<td>18</td>
+			</tr>
+			<tr>
+				<td>019</td>
+				<td>Odit earum cupiditate asperiores reiciendis.</td>
+				<td>Aspernatur.</td>
+				<td>2019-04-19</td>
+				<td>19</td>
+			</tr>
+			<tr>
+				<td>020</td>
+				<td>Accusantium voluptatibus quia aspernatur optio.</td>
+				<td>Porro.</td>
+				<td>2019-04-20</td>
+				<td>20</td>
+			</tr>
+		</tbody>
+		
+	</table>
+	
+</body>
+</html>
