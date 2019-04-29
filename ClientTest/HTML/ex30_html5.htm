@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- ex30_html5.htm -->
+	
+	<!--  
+	
+	~ 현재 : HTML 4.01 + XHTML 1.0
+	현재 ~ : HTML 5
+	
+	-->
+	<h1>form 관련</h1>
+	
+	<form action="ex30_ok.jsp" method="post">
+		
+		<input type="text" value="이름을 입력하세요." onfocus=" this.value=''; "><br>
+		<input type="password" value="암호를 입력하세요."><br>
+		
+		<hr>
+		
+		<input type="text" placeholder="이름을 입력하세요."><br>
+		<input type="password" placeholder="암호을 입력하세요."><br>
+		<textarea placeholder="자기소개을 입력하세요."></textarea>
+		
+		<hr>
+		
+		이름 : <input type="text" required value="1"> (**필수입력)<br>
+		암호 : <input type="password" required value="1"><br>
+		<textarea required>1</textarea>
+		
+		<hr>
+		
+		<!-- 의미가 강조 -->
+		전화번호 : <input type="tel">
+		
+		<hr>
+		
+		<!-- 의미 + 유효성 -->
+		URL : <input type="url">
+		
+		<hr>
+		
+		Email : <input type="email">
+		
+		<hr>
+		
+		숫자 : <input type="number" min="0" max="100" step="10">
+		
+		<hr>
+		
+		범위 : <input type="range" min="0" max="500" onchange="document.getElementById('rtxt').value=this.value;">
+		<input type="text" id="rtxt">
+		
+		<hr>
+		
+		색상 : <input type="color" value="#ffff00"
+			onchange="document.body.bgColor=this.value;">
+		
+		<hr>
+		
+		날짜 시간 :
+		
+		<!-- <input type="text"> -->
+		<input type="date">
+		
+		<hr>
+		
+		<input type="month">
+		
+		<hr>
+		
+		<input type="week">
+		
+		<hr>
+		
+		<input type="time">
+		
+		<hr>
+		
+		<input type="datetime-local">
+		
+		<hr>
+		
+		<!-- 의미만 -->
+		<input type="search">
+		
+		<hr>
+		
+		사원명(+ 추가입력 가능) :
+		<select>
+			<option>직접입력</option>
+			<option>홍길동</option>
+			<option>아무개</option>
+			<option>하하하</option>
+		</select>
+		<input type="text">
+		
+		<hr>
+		
+		사원명 : <input type="text" list="list1"><!-- FK -->
+		
+		<datalist id="list1"><!-- PK -->
+			<option value="홍길동"></option>
+			<option value="아무개"></option>
+			<option value="하하하"></option>
+		</datalist>
+		
+		
+		<hr>
+		
+		<progress></progress><br>
+		<progress value="0"></progress><br>
+		<progress value="1"></progress><br>
+		<progress value="0.5"></progress><br>
+		<progress max="100" value="50"></progress><br>
+		<progress max="100" value="35"
+			onmouseover="this.title=this.value + '%';"></progress><br>
+		
+		<hr>
+		
+		<meter></meter><br>
+		<meter value=".5"></meter><br>
+		<meter min="-100" max="100" value="-50"></meter><br>	
+		<meter min="0" max="100" high="80" low="20" value="10"></meter><br>
+		<meter min="0" max="100" high="80" low="20" value="20"></meter><br>
+		<meter min="0" max="100" high="80" low="20" value="30"></meter><br>
+		<meter min="0" max="100" high="80" low="20" value="40"></meter><br>
+		<meter min="0" max="100" high="80" low="20" value="50"></meter><br>
+		<meter min="0" max="100" high="80" low="20" value="60"></meter><br>
+		<meter min="0" max="100" high="80" low="20" value="70"></meter><br>
+		<meter min="0" max="100" high="80" low="20" value="80"></meter><br>
+		<meter min="0" max="100" high="80" low="20" value="90"></meter><br>
+		<meter min="0" max="100" high="80" low="20" value="100"></meter><br>
+		
+		<hr>
+		
+		<details>
+			<summary>자바란?</summary>
+			<p>자바는 어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구  어쩌구 저쩌구 </p>
+		</details>
+		
+		<hr>
+		
+		<fieldset>
+			<legend align="center">로그인</legend>
+			아이디 : <input type="text"><br>
+			암호 : <input type="password">
+		</fieldset>
+		
+		<hr>
+		
+		<marquee behavior="scroll" scrollamount="50">안녕하세요. 홍길동입니다.</marquee>
+		
+		<hr>
+		
+		<input type="submit" value="가입하기">
+		
+	</form>
+	
+</body>
+</html>
