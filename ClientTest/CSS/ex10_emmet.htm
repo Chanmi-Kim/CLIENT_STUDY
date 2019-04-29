@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+
+</style>
+</head>
+<body>
+	<!-- ex10_emmet.htm -->
+	<!--  
+	
+	Emmet, Zen-Coding
+	- 편집기 확장 기능
+	- CSS 선택자를 사용해서 HTML 코드를 손쉽게 작성할 수 있도록 하는 기능
+	- http://emmet.io
+	
+	-->
+	
+	<h1>태그 선택자</h1>
+	<!-- div { } -->
+	<div></div>
+	
+	div
+	p
+	a
+	<a href="ex.htm">test</a>
+	<a href="http://naver.com">네이버</a>
+	
+	img
+	<img src="dog.jpg" alt="강아지" />
+	
+	input
+	<input type="text" />
+	
+	
+	<h1>ID 선택자</h1>
+	<!-- div#box1 { } -->
+	<div id="box1"></div>
+	div#box1
+	<div id="box1"></div>
+	
+	h1#title
+	<h1 id="title"></h1>
+	
+	nav#mainmenu
+	<nav id="mainmenu"></nav>
+	
+	<!-- div#box1 {} -->
+	<!-- #box1 {} -->
+	<div id="box1"></div>
+	
+	#box1
+	<div id="box1"></div>
+	
+	
+	<h1>Class 선택자</h1>
+	<!-- div.box {} -->
+	<div class="box"></div>
+	
+	div.box
+	<div class="box"></div>
+	
+	p.description
+	<p class="description"></p>
+	
+	.item
+	<div class="item"></div>
+	
+	<!-- div.one.two.three -->
+	<div class="one two three"></div>
+	div.one.two.three
+	<div class="one two three"></div>
+	
+	div#box1.box.red.big
+	<div id="box1" class="box red big"></div>
+	
+	
+	<h1>속성 선택자</h1>
+	<!-- div[title] {} -->
+	<div title=""></div>
+	
+	div[title]
+	<div title=""></div>
+	
+	div[title='상자']
+	<div title="상자"></div>
+	
+	img[width height]
+	<img src="dog.jpg" alt="강아지" width="200" height="150" />
+	
+	img[width=200 height=200]
+	<img src="" alt="" width="200" height="200" />
+	
+	img#dog1.animal[width=300 height=200 title=강아지]
+	<img src="" alt="" id="dog1" class="animal" width="300" height="200" title="강아지" />
+	
+	
+	<h1>PCDATA</h1>
+	<div>상자</div>
+	
+	div{상자}
+	<div>상자</div>
+	
+	div#box1.box[title=상자]{상자입니다.}
+	<div id="box1" class="box" title="상자">상자입니다.</div>
+	
+	-------------------------------------------------------- 기본
+	
+	위의 요소 조합 x 반복
+	<h1>반복 생성</h1>
+	
+	div*5
+	<div>하나</div>
+	<div>둘</div>
+	<div>셋</div>
+	<div>넷</div>
+	<div>다섯</div>
+	
+	div.item*5
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	<div class="item"></div>
+	
+	div.item[title]{아이템}*5
+	<div class="item" title="">아이템</div>
+	<div class="item" title="">아이템</div>
+	<div class="item" title="">아이템</div>
+	<div class="item" title="">아이템</div>
+	<div class="item" title="">아이템</div>
+	
+	div#box1*5
+	div#box$*5
+	div#box$$*5
+	div#box$${상자$}*5
+	<div id="box01">상자1</div>
+	<div id="box02">상자2</div>
+	<div id="box03">상자3</div>
+	<div id="box04">상자4</div>
+	<div id="box05">상자5</div>
+	
+	h$*6
+	aaa$*5
+	
+	a[href='view.jsp?seq=$']{글보기}*5
+	
+	<h1>형제 선택자</h1>
+	a ~ b : 형
+	a + b : 친형
+	
+	div+p
+	h1+p+p+p
+	h1+p*3
+	(h1+p)*3	
+	
+	(h1#title$.titles{제목입니다.})+p.content{설명입니다.}*3
+	((h1#title$.titles{제목입니다.})+p.content{설명입니다.})*3
+	
+	
+	<h1>자식 선택자</h1>
+	a b : X
+	a > b	: O
+	
+	div>a
+	<div><a href=""></a></div>
+	
+	ul>li*3
+	ul>li.item*3
+	ul#list1>li.item*3
+	ul#list1>li.item{항목$}*3
+	h1{오늘의 할일}+ul#list1>li.item{항목$}*3
+	
+	
+	<h1>10행 5열 테이블</h1>
+	table>tr>td
+	table>tr*10>td*5
+	
+	table#tbl1>tr*10>td*5
+	table#tbl1>(tr>th*5)+(tr>td*5)*9
+	table#tbl1>(tr>th*5)+(tr>td.cell$*5)*9
+	
+	
+	<h1>Lorem Ipsum</h1>
+	- 임의의 문자열(***) 난수 생성기
+	
+	<h1>제목입니다.</h1>
+	<p>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>
+	
+	<h1>제목입니다.</h1>
+	<p>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>
+	
+	<h1>제목입니다.</h1>
+	<p>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>
+	
+	
+	lorem
+	lorem5
+	
+	h1{lorem}
+	h1>lorem
+	((h1>lorem5)+(p>lorem50))*3
+	
+</body>
+</html>
