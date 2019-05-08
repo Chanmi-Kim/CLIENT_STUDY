@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    #p1 {
+        /* text-shadow: h-shadow v-shadow blur color */
+        text-shadow: 1px 1px 1px gray;
+    }
+
+    #box1 {
+        border: 1px solid #ccc;
+        box-shadow: 3px 3px 2px gray;
+        text-shadow: 2px 2px 1px gray;
+    }
+
+    h1 > span:nth-child(1) { text-shadow: 1px 3px 1px cornflowerblue; }
+    h1 > span:nth-child(2) { text-shadow: 2px -3px 1px darkorange; }
+    h1 > span:nth-child(3) { text-shadow: -2px 2px 1px lawngreen; }
+    h1 > span:nth-child(4) { text-shadow: 3px -1px 1px lightcoral; }
+    h1 > span:nth-child(5) { text-shadow: 2px 3px 1px palevioletred; }
+
+    #btnWrite {
+        /* css3 + control + template + form */
+        border: 1px solid gray;
+        background-color: black;
+        color: white;
+        padding: 5px 15px;
+        text-shadow: -1px -1px 0px #444;
+    }
+
+    #p2:hover {
+        /* text-shadow: 2px 2px 2px gray; */
+        box-shadow: 2px 2px 2px gray;
+        outline: 1px solid gray;
+    }
+
+    #p4, #p5 {
+        border: 1px solid black;
+        width: 300px;
+        /* height: 20px; */
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    #p4 { text-overflow: clip; }
+    #p5 { text-overflow: ellipsis; }
+
+    </style>
+</head>
+<body>
+    <!-- ex35_shadow.htm -->
+
+    <p id="p4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, eligendi.</p>
+    <p id="p5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, incidunt?</p>
+
+
+    <input type="button" value="Write" id="btnWrite">
+
+    <h1><span>H</span><span>T</span><span>M</span><span>L</span><span>5</span> <small>Hyper Text Markup Language Version 5</small></h1>
+
+    <!-- (p#p$>lorem10)*3 -->
+    <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, rerum.</p>
+    <p id="p2">Ipsam quibusdam quis temporibus quaerat cumque laboriosam repellendus accusantium vero?</p>
+    <p id="p3">Nisi distinctio nobis quisquam pariatur est, a repellendus amet dolor.</p>
+
+    <!-- div#box${HTML5 & CSS3}*3 -->
+    <div id="box1">HTML5 & CSS3</div>
+    <div id="box2">HTML5 & CSS3</div>
+    <div id="box3">HTML5 & CSS3</div>
+
+
+
+
+
+</body>
+</html>

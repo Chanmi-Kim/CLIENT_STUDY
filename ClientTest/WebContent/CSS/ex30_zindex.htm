@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    .box { border: 10px solid black; width: 200px; height: 200px; }
+    #box1 { background-color: red; }
+    #box2 { 
+        background-color: yellow; 
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        z-index: 1;
+    }
+    #box3 { 
+        background-color: blue;
+        /* background-color: rgba(0, 0, 255, .3); */
+        position: absolute;
+        left: 150px;
+        top: 150px;
+        z-index: 2;
+        color: black;
+        opacity: .1;
+    }
+
+    #list {
+        border: 0px solid black;
+        width: 1300px;
+    }
+
+    #list img {
+        float: left;
+        opacity: .3;
+    }
+
+    #list img:hover {
+        opacity: 1;
+    }
+
+    #content span {
+        opacity: .5;
+    }
+    #content span:hover {
+        opacity: 1;
+    }
+
+
+    .data {
+        outline: none;
+        border: 5px solid cornflowerblue;
+        margin-bottom: 5px;
+        opacity: .4;
+    }
+
+    .data:focus {
+        opacity: 1;
+    }
+
+    </style>
+</head>
+<body>
+    <!-- ex30_zindex.htm -->
+
+    <!-- div#box$.box{상자$}*3 -->
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">
+        상자3 
+        <img src="../images/catty01.png">
+    </div>
+
+
+
+    <h1 style="margin-top: 200px;">고양이들</h1>
+
+    <div id="list">
+        <!-- img[src=../images/cat0$.jpg]*5 -->
+        <img src="../images/cat01.jpg" alt="">
+        <img src="../images/cat02.jpg" alt="">
+        <img src="../images/cat03.jpg" alt="">
+        <img src="../images/cat04.jpg" alt="">
+        <img src="../images/cat05.jpg" alt="">
+        <div style="clear: left;"></div>
+    </div>
+
+    다른 내용물
+
+    <h1>알려드립니다.</h1>
+
+    <div id="content">
+        <!-- (span>lorem2)*100 -->
+        <span>Lorem, ipsum.</span>
+        <span>Magni, necessitatibus.</span>
+        <span>Perferendis, quasi!</span>
+        <span>Reprehenderit, minus?</span>
+        <span>Veritatis, magni.</span>
+        <span>Nisi, voluptatem?</span>
+        <span>Ipsum, nesciunt.</span>
+        <span>Molestiae, culpa!</span>
+        <span>Nisi, reprehenderit.</span>
+        <span>Velit, tenetur?</span>
+        <span>Officiis, eius.</span>
+        <span>Beatae, laudantium.</span>
+        <span>Ipsum, laudantium!</span>
+        <span>Exercitationem, repudiandae.</span>
+        <span>Enim, cum.</span>
+        <span>Exercitationem, repudiandae!</span>
+        <span>Debitis, ex.</span>
+        <span>Molestiae, itaque.</span>
+        <span>Illum, cupiditate.</span>
+        <span>Voluptatem, assumenda.</span>
+        <span>Reiciendis, porro!</span>
+        <span>Nisi, et.</span>
+        <span>Maiores, excepturi.</span>
+        <span>Facere, suscipit.</span>
+        <span>Dolore, reiciendis?</span>
+        <span>Inventore, itaque.</span>
+        <span>Culpa, vitae!</span>
+        <span>Non, ea.</span>
+        <span>Voluptas, neque.</span>
+        <span>Unde, asperiores.</span>
+        <span>Voluptate, maxime?</span>
+        <span>Iusto, alias?</span>
+        <span>Sint, qui.</span>
+        <span>Optio, velit.</span>
+        <span>Nihil, qui?</span>
+        <span>Quam, voluptate.</span>
+        <span>Asperiores, ipsum!</span>
+        <span>Tempora, nihil!</span>
+        <span>Ex, sit.</span>
+        <span>Vel, rem?</span>
+        <span>Quaerat, vel.</span>
+        <span>Ipsam, dolorum?</span>
+        <span>Architecto, officia!</span>
+        <span>Harum, mollitia?</span>
+        <span>Quae, quo?</span>
+        <span>Ipsa, a.</span>
+        <span>Laboriosam, dolorem!</span>
+        <span>Molestias, velit!</span>
+        <span>Repudiandae, maxime!</span>
+        <span>Dignissimos, accusamus!</span>
+        <span>Ipsa, autem.</span>
+        <span>Libero, expedita.</span>
+        <span>Repudiandae, aspernatur.</span>
+        <span>Veritatis, id.</span>
+        <span>Tenetur, et?</span>
+        <span>Molestias, aperiam.</span>
+        <span>Sit, vel.</span>
+        <span>Consequatur, nulla.</span>
+        <span>Cumque, sed.</span>
+        <span>Maxime, unde.</span>
+        <span>Modi, dicta?</span>
+        <span>Nisi, voluptas.</span>
+        <span>Alias, dolorum?</span>
+        <span>Illum, eaque.</span>
+        <span>Commodi, libero.</span>
+        <span>Doloribus, ipsum.</span>
+        <span>Dolorum, non.</span>
+        <span>Recusandae, a.</span>
+        <span>Ducimus, perspiciatis?</span>
+        <span>Vero, nulla?</span>
+        <span>Totam, odio!</span>
+        <span>Amet, magni?</span>
+        <span>In, voluptatibus!</span>
+        <span>Dolorum, animi.</span>
+        <span>Iure, qui!</span>
+        <span>Iusto, quae.</span>
+        <span>Adipisci, earum.</span>
+        <span>Tenetur, debitis!</span>
+        <span>Modi, sequi!</span>
+        <span>Maiores, perferendis?</span>
+        <span>Qui, magnam.</span>
+        <span>Laboriosam, veritatis.</span>
+        <span>Obcaecati, ipsa!</span>
+        <span>Nostrum, minus.</span>
+        <span>Tempore, fuga!</span>
+        <span>Libero, maiores?</span>
+        <span>Quidem, laborum.</span>
+        <span>Maiores, ducimus!</span>
+        <span>Molestiae, in.</span>
+        <span>Nam, atque?</span>
+        <span>Enim, accusantium?</span>
+        <span>Quidem, accusamus.</span>
+        <span>Atque, adipisci?</span>
+        <span>Ex, quas.</span>
+        <span>At, totam.</span>
+        <span>Modi, officiis!</span>
+        <span>Animi, ratione.</span>
+        <span>Nemo, corporis.</span>
+        <span>Inventore, fuga!</span>
+        <span>Animi, ipsam.</span>
+    </div>
+
+    <h1>입력 데이터</h1>
+
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+
+</body>
+</html>

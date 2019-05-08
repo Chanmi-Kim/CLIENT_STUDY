@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body { margin-bottom: 500px; }
+        .box { border: 1px solid black; width: 500px; height: 300px; margin: 20px; }
+
+        #box1 {
+            background-image: 
+                url(../images/catty01.png), 
+                url(../images/catty03.png), 
+                url(../images/catty05.png);
+            background-repeat: 
+                /* no-repeat, 
+                repeat-x, 
+                repeat-y; */
+                no-repeat;
+            background-position:
+                left top,
+                right top,
+                left bottom
+        }
+
+        #box2 {
+            background-image: url(../images/cat01_big.jpg);
+            /* background-size: 500px 300px; */
+            /* background-size: 250px 150px; */
+            /* background-size: 25px 15px; */
+            /* background-size: 500px 30px; */
+            /* background-size: 100% 100%; */
+            /* background-size: 250px auto; */
+            /* background-size: 500px auto; */
+            background-size: auto 300px;
+            background-position: center center;
+        }
+
+        #box3 {
+            background-image: url(../images/cat03_big.jpg);
+            /* background-size: 100% auto; */
+
+            /*  
+            contain : 배경 이미지의 단축을 100%으로 출력되게. 반복되는 영역이 일부 생김 + no-repeat
+            cover : 배경 이미지의 장축을 100%으로 출력되게
+            */
+            /* background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center; */
+            background-size: cover;
+            background-position: center center;
+        }
+
+        /* 풀 사이즈 배경 이미지 */
+        html {
+            background-image: url(../images/wall34.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- ex46_background.htm -->
+    <div id="box1" class="box">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit, libero. Pariatur provident accusamus vitae nemo ipsa saepe, ad sapiente corporis dolorem qui tenetur iste libero mollitia quaerat tempora quos neque.</div>
+    <div id="box2" class="box">Pariatur recusandae quod, non molestias esse deserunt! Exercitationem laudantium, voluptatem saepe odit modi dolorem corporis sit ipsa et a sequi beatae animi consequatur veritatis perspiciatis, tempora facere nostrum accusamus impedit?</div>
+    <div id="box3" class="box">Dolores fugit vel ratione similique omnis qui, blanditiis itaque aut veniam, molestias non inventore consequuntur ducimus consectetur pariatur alias porro hic recusandae nesciunt quibusdam iusto perferendis quas placeat. Doloribus, ducimus.</div>
+</body>
+</html>
