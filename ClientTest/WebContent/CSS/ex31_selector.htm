@@ -32,7 +32,7 @@
     #list1 li:last-child {
         color: brown;
     }
-
+        
     #list1 li:nth-child(5) {
         background-color: cornflowerblue;
     }
@@ -42,11 +42,10 @@
     }
 
     /* 모든 태그가 형제로 취급된다. */
-    #boxlist div:first-child {
-        background-color: gold;
-    }
-
-
+    #boxlist div:first-child{
+        background-color:gold;
+    }    
+        
     /* 
     #tbl1 tr:first-child {
         background-color: chartreuse;
@@ -73,11 +72,28 @@
     #tbl1 tr:nth-child(odd) td:nth-child(even) {
         background-color: gold;
     }
+    
+    #tblList, #tblList th, #tblList td{
+        border-right: 0px;
+        border-left: 0px;
+    }
+
+    #tblList tr:hover{
+        background-color: #eee;
+    }
+
+    /* 게시물 중 일부를 사용자가 집중해서 봐야해서 표시를 하고 싶다. */
+    #tblList tbody > tr:nth-child(1),
+    #tblList tbody > tr:nth-child(8),
+    #tblList tbody > tr:nth-child(12){
+        background-color:greenyellow;
+    }
 
     </style>
 </head>
 <body>
     <!-- ex31_selector.htm -->
+    <!-- ul#list1>li*10 -->
     <ul id="list1">
         <li>강아지</li>
         <li>고양이</li>
