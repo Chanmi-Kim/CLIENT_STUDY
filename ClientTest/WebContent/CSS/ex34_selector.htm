@@ -16,7 +16,7 @@
     - content 속성의 값
     a. none
     b. 문자열
-    c. attr(속성)
+    c. alter(속성)
     d. open-quote
     e. close-quote
 
@@ -28,13 +28,13 @@
 
     span::before {
         /* content: "["; */
-        /* content: "<b>"; */
+        /* content: "<b>"; // 지원 안함*/
         /* content: open-quote; */
     }
 
     span::after {
         /* content: "]"; */
-        /* content: "</b>"; */
+        /* content: "</b>"; // 지원 안함*/
         content: close-quote;
     }
 
@@ -69,6 +69,7 @@
 </head>
 <body>
     <!-- ex34_selector.htm -->
+    <!-- p>lorem100 -->
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span>Consectetur</span> nemo" nisi, vitae odit ratione nobis impedit tempora distinctio provident numquam, quis expedita fuga <span>dolorum</span> nesciunt minima. Eos doloribus, quos commodi eaque eveniet tenetur quam quas distinctio ad delectus fuga sequi quisquam soluta, earum suscipit id adipisci eligendi laborum! Natus mollitia <span>accusamus</span> inventore quas provident modi cumque consequatur consequuntur, tenetur quidem, architecto labore aliquid vero voluptatum laboriosam similique hic veniam voluptatem porro minima id <span>accusantium</span> adipisci illum repudiandae! Optio sed enim ab nam repellendus omnis rerum unde voluptates quibusdam voluptas tempore <span>dolorum</span> quia dolores animi autem iure dolore, sunt nesciunt doloribus.</p>
 
     <hr>
