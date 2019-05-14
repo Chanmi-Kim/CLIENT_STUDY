@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>025 JavaScript - 요구사항.008</title>
+    <style>
+    
+    #tbl {
+        border: 1px solid gray;
+        border-collapse: collapse;
+        width: 400px;
+    }
+
+    #tbl td{
+        border: 1px solid gray;
+    }
+
+    .zipcode{
+        width: 50px;
+    }
+
+    .address{
+        border: 1px solid gray;
+        width: 98%;
+    }
+
+    #tbl td:first-child{
+        font-size: 12px;
+        text-align: center;
+        width: 100px;
+        background-color: #DEDEDE;
+    }
+
+    #btnZipcode{
+        background-color: #DEDEDE;
+    }
+
+    input {
+        border: 1px solid gray;
+        padding-left: 3px;
+        align
+    }
+    
+    </style>
+    <script>
+        function search(){
+            window.open("ex31_search.htm", "search", "width=300, height=200");
+        }
+
+    </script>
+</head>
+<body>
+    <!-- exam08.htm: 025 JavaScript - 요구사항.008-->
+    <form name="form1">
+        <table id="tbl">
+            <tbody>
+                <tr>
+                    <td>우편번호</td>
+                    <td><input type="text" id="txtZipcode1" name="txtZipcode1" class="zipcode"> - <!-- name 기준 -->
+                        <input type="text" id="txtZipcode2" name="txtZipcode2" class="zipcode">
+                        <input type="button" value="우편번호검사하기" id="btnZipcode" onclick="search();"></td>
+                </tr>
+                <tr>
+                    <td>주소</td>
+                    <td><input type="text" id="txtAddress" name="txtAddress" class="address"></td>
+                </tr>
+                <tr>
+                    <td>상세주소</td>
+                    <td><input type="text" name="txtDetailedAddress" class="address"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
