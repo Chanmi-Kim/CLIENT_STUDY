@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>025 JavaScript - 요구사항.009</title>
+    <style>
+    
+    #tbl {
+        border: 1px solid gray;
+        border-collapse: collapse;
+        width: 400px;
+    }
+
+    #tbl td{
+        border: 1px solid gray;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    #tbl td:first-child{
+        text-align: center;
+        width: 80px;
+    }
+
+    .identityNumber{
+        width: 80px;
+    }
+
+    .birth{
+        width: 50px;
+    }
+
+    input{
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+    </style>
+    <script>
+
+    function check(identityNumber1){
+        var year = document.all.year;
+        var month = document.all.month;
+        var day = document.all.day;
+        var identityNumber2 = document.all.identityNumber2;
+
+        if(identityNumber1.value.length == 6){
+            year.value="19"+identityNumber1.value.substring(0,2);
+            month.value=identityNumber1.value.substring(2,4);
+            day.value=identityNumber1.value.substring(4,6);
+            identityNumber2.focus();
+        }
+
+    }
+
+    function check2(identityNumber2){
+        var gender = document.all["gender"];
+        
+        if(identityNumber2.value.length == 1){
+            if(parseInt(identityNumber2.value) % 2 == 1){
+                gender[0].checked = true;
+            } else {
+                gender[1].checked = true;       
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- 025 JavaScript - 요구사항.009 -->
+    <h1>회원 가입</h1>
+    <form id="form1">
+        <table id="tbl">
+            <tbody>
+                <tr>
+                    <td>주민번호</td>
+                    <td>
+                        <input type="text" name="identityNumber1" class="identityNumber" onkeyup="check(this);"> -
+                        <input type="text" name="identityNumber2" class="identityNumber" onkeyup="check2(this);">
+                    </td>
+                </tr>
+                <tr>
+                    <td>생년월일</td>
+                    <td>
+                        <input type="text" name="year" class="birth">년
+                        <input type="text" name="month" class="birth">월
+                        <input type="text" name="day" class="birth">일
+                    </td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+                    <td>
+                        <input type="radio" name="gender">남자
+                        <input type="radio" name="gender">여자
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
