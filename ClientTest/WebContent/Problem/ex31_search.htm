@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>025 JavaScript - 요구사항.008(팝업창)</title>
+    <script>
+        function sel(txtZipcode1, txtZipcode2, txtAddress) {
+            // window.document // 본인창
+            // opener.document // 부모창
+            // child.document // 자식창
+
+            opener.document.form1.txtZipcode1.value = txtZipcode1;
+            opener.document.form1.txtZipcode2.value = txtZipcode2;
+            opener.document.form1.txtAddress.value = txtAddress;
+            opener.document.form1.txtDetailedAddress.focus();
+            window.close();
+        }
+    </script>
+</head>
+<body>
+    <!-- search.htm: 025 JavaScript - 요구사항.008-->
+    <form>
+        <input type="button" value="서울시 동대문구 회기동" onclick="sel('100','200','서울시 동대문구 회기동');"><br>
+        <input type="button" value="서울시 동대문구 휘경동" onclick="sel('300','400','서울시 동대문구 휘경동');"><br>
+        <input type="button" value="서울시 동대문구 이문동" onclick="sel('500','600','서울시 동대문구 이문동');"><br>
+    </form>
+</body>
+</html>
