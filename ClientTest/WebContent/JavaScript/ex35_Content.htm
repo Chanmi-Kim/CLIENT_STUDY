@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #tbl1 { border: 1px solid black; border-collapse: collapse; }
+        #tbl1 td { border: 1px solid black; width: 100px; height: 100px; text-align: center; font-size: 5em; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <!-- ex35_Content.htm -->
+    <h1>게시판</h1>
+    <div id="filelist">
+        <div><input type="button" value="첨부파일 갯수 추가하기" id="btnAdd"></div>
+        <hr>
+        <div><label>첨부 파일 : </label><input type="file"></div>
+        <div id="filesublist"></div>
+    </div>
+
+    <h1>테이블</h1>
+
+    <table id="tbl1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+    
+    document.getElementById("btnAdd").onclick = test;
+    
+    // 동적으로 추가할 때 그들만 따로 담을 태그를 만들어라
+    // --> <div id="filesublist"></div>
+
+    function test() {
+
+        //추가하기 버튼 클릭
+        document.getElementById("filesublist").innerHTML += "<div><label>첨부 파일 : </label><input type='file'></div>";
+
+        //document.getElementById("btnAdd").onclick = test;
+
+    };
+
+
+    //#tbl1  td
+
+    var cells = document.getElementsByTagName("td");
+    
+    for(var i=0; i<cells.length; i++){
+        cells[i].onclick = function(){
+            // alert("클릭" + i);
+            // event.srcElement.bgColor = "gold"; // i가 아니라 event.srcElement로 작업해야함
+            event.srcElement.innerText = "O";
+        };
+    }
+
+    // cells[0].onclick = function(){
+    //     alert("클릭" + i);
+    // }
+
+    </script>
+</body>
+</html>
