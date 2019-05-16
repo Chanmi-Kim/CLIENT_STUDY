@@ -84,9 +84,30 @@
         // 두 번째 예제
         colorName.onkeyup = function(){
             
+            // 보조키 유무 체크
+            // alert(event.ctrlKey);
+            // alert(event.shiftKey);
+            // alert(event.altKey);
+
             // 엔터키를 입력
-            if(event.keyCode == 13){ // Enter는 13번
-                alert("enter")
+            if(event.ctrlKey && event.keyCode == 13){ // Enter는 13번
+                // alert("enter")
+
+                // <tr><td>빨강</td><td bgcolor="#AAAAAA">#AAAAAA</td><tr>
+                var tr = "<tr>";
+                tr += "<td>";
+                tr += colorName.value;
+                tr += "</td>";
+                tr += "<td bgcolor = '" + colorCode.value + "'>";
+                tr += colorCode.value;
+                tr += "</td>";
+                tr += "<tr>";
+
+                tbody2.innerHTML += tr;
+
+                // 다음 색상을 입력하기 위해 초기화
+                colorCode.value = "#000000";
+                colorName.value = "";
             }
         
         };
