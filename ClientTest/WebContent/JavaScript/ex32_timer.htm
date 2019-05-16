@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        
+        var btn1, txt1, btn2, btn3;
+        var n = 0;
+        var timer = 0;
+        var colors = [ "tomato", "gold", "cornflowerblue", "black", "white"];
+
+        window.onload = function() {
+            btn1 = document.form1.btn1;
+            btn2 = document.form1.btn2;
+            btn3 = document.form1.btn3;
+            txt1 = document.form1.txt1;
+
+            btn1.onclick = function() {
+
+                //setTimeout(f1, 3000);
+                // setTimeout(function () { // 3초 후 대화상자 뜸
+                //     alert("따르릉");
+                // }, 3000); // 만료 시간
+
+                // setInterval(function() { // 3초에 한 번 반복적으로 대화상자 뜸
+                //     alert("띵동");
+                // }, 3000);
+
+                // setInterval(function() { // 시간이 찍힘
+                //     txt1.value = (new Date()).toLocaleTimeString();
+                // }, 1000);
+
+                //test();
+
+                // setInterval(function() { // 대화상자 크기가 늘어남
+                //     txt1.size += 1;
+                // }, 100);
+
+                if (timer == 0) {
+                    timer = setInterval(function() {
+                        txt1.value = n;
+                        n++;
+                    }, 100);
+                }
+
+                console.log(timer);
+
+
+            };//click
+
+            btn2.onclick = function() {
+                //setTimeout() -> clearTimeout()
+                //setInterval() -> clearInterval()
+                clearInterval(timer);
+                timer = 0;
+            };
+
+
+            btn3.onclick = function() {
+                setInterval(function() {
+                    document.body.bgColor = colors[n];
+                    n++; 
+                    if (n >= colors.length) n = 0;
+                }, 1000);    
+            };
+
+
+        };//onload
+
+        function test() {
+            txt1.value = (new Date()).toLocaleTimeString();
+            setTimeout(test, 1000);
+        }
+
+    </script>
+</head>
+<body>
+    <!-- ex32_timer.htm -->
+    <h1>타이머</h1>
+    <p>지정된 시간이 지나면 미리 준비해둔 실행코드를 실행한다.(setTimeout())</p>
+    <p>지정된 시간이 지날 때마다 반복적으로 미리 준비해둔 실행코드를 실행한다.(setInterval())</p>
+    <form name="form1">
+        <input type="button" value="버튼" name="btn1">
+        <input type="button" value="버튼" name="btn2">
+        <hr>
+        <input type="text" name="txt1">
+        <hr>
+        <input type="button" value="버튼" name="btn3">
+        <img src="../images/catty01.png" name="cat1" 
+            onclick="change();">
+    </form>
+
+    <script>
+        
+        var index = 1;
+
+        function change() {
+
+            if (timer == 0) {
+                timer = setInterval(function() {
+                    index++;
+                    if (index > 9) index = 1;
+                    document.images["cat1"].src = "../images/catty0" + index + ".png"; // %s 개념이 없으므로 +로 쪼개야 함
+                }, 50);
+            } else {
+                clearInterval(timer);
+                timer = 0;
+            }
+
+            
+        }
+    </script>
+
+</body>
+</html>

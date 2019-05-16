@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #tbl1 {border: 1px solid black; border-collapse: collapse; width: 500px;}
+        #tbl1 td {border: 1px solid black; padding: 5px;}
+
+        #box1, #box2, #box3{
+            padding: 50px;
+        }
+
+        #box1{background-color: tomato;}
+        #box2{background-color: gold;}
+        #box3{background-color: cornflowerblue;}
+
+        #tbl3{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        #tbl3 td{
+            border: 1px solid black;
+            width: 126px;
+            height: 126px;
+        }
+        #tbl3 td img{
+            display: block; // 테이블에 사진 넣을 때 이상한 공간 없애는 방법
+        }
+
+    </style>
+    <script>
+    
+    var list, box1, box2, box3;
+
+    window.onload = function(){
+
+        // list = document.getElementsByTagName("tr"); // 비권장
+        var tbl1 = document.getElementById("tbl1");
+
+        var box1 = document.getElementById("box1");
+        var box2 = document.getElementById("box2");
+        var box3 = document.getElementById("box3");
+    
+        // tbl1.childNodes
+        // alert(tbl1.children.length); // <tr> 개수
+        // alert(tbl1.children[0].children.length);
+
+        // tr 루프
+        for(var i=0; i<tbl1.children[0].children.length; i++){
+            tbl1.children[0].children[i].onmouseover = function(){
+                // 집단으로 이벤트를 매핑할 때 이벤트 발생 객체를 찾기 위해 루프변수 사용금지(i) ** 마지막 숫자가 들어있음
+                // tbl1.children[0].children[i].bgColor = "gold";
+
+                // event.srcElement.bgColor = "gold"; // 마우스 스치는 곳 다 노란색으로 변함
+                event.srcElement.parentNode.bgColor = "gold";
+            };
+            tbl1.children[0].children[i].onmouseout = function(){
+                event.srcElement.parentNode.bgColor = "transparent";
+            }
+
+            tbl1.children[0].children[i].onclick = function(){
+                event.srcElement.parentNode.parentNode.removeChild(event.srcElement.parentNode);
+            };
+        }
+
+
+        // ***
+        box1.onclick = function(){
+            alert("할아버지");
+            // event.cancelBubble = true;
+            console.log("box1.onclick", event.srcElement.id);
+        };
+
+        // box2.onclick = function(){
+        //     alert("아버지");
+        //     // event.cancelBubble = true;
+        //     console.log("box2.onclick", event.srcElement.id);
+        // };
+
+        // box3.onclick = function(){
+        //     alert("아들");
+        //     // event.cancelBubble = true;
+        //     console.log("box3.onclick", event.srcElement.id);
+        // };
+
+
+        var rows = document.getElementById("tbl3").children[0].children;
+
+        for(var i=0; i<rows.length; i++){
+            
+            var cells = rows[i].children;
+        
+            for(var j=0; j<cells.length; j++){
+
+                // cells[j].innerText = "cell";
+                cells[j].onmousedown = function(){
+
+                    alert("클릭");
+                    
+                    if(event.buttons == 1){ // 왼쪽 버튼
+
+                        if(event.srcElement.nodeName == "TD"){
+                            event.srcElement.innerHTML = "<img src='../images/rect_icon01.png'>";
+                            // ** 이 방법을 사용하지 않는 방법으로 연습해보기 (참고: ex39_DOM.htm)
+
+                        } else if(event.srcElement.nodeName == "IMG"){
+                            // alert("이미지");
+                            even.srcElement.parentNode.innerHTML = "<img src='../images/rect_icon02.png'>";
+                        }
+
+                    } else if(event.buttons == 2){ // 오른쪽 버튼
+                        event.srcElement.innerHTML = "<img src='../images/rect_icon02.png'>";
+                    } else if(event.buttons == 4){
+                        if(event.srcElement.nodeName=="IMG"){
+                            event.srcElement.parentNode.innerHTML = "";
+                        }
+                    }
+                };
+
+            }
+        
+        }
+
+    }; // onload
+    
+    </script>
+</head>
+<body oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;"> 
+    <!-- 
+        
+    oncontextmenu : 오른쪽 버튼 누를 때 메뉴 안 보이게 
+    ondragstart : 드래그
+    onselectstart : 드래그 안되게
+    
+    -->
+
+    <!-- ex38_DOM.htm -->
+    <h1>테이블</h1>
+
+    <!-- table#tbl1>tr*20>td{item}*5 -->
+    <table id="tbl1">
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h1>이벤트 버블링(Bubbling) vs 이벤트 터널링(Tunneling)</h1>
+
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+
+    <h1>테이블</h1>
+
+    <table id="tbl3">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>
