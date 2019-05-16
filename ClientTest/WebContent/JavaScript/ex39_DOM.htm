@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex39_DOM.htm -->
+    <h1>동적으로 태그 생성</h1>
+    <ul>
+        <li>innerHTML 속성 사용하기 : 간단 버전(정적)</li>
+        <li>DOM 메소드 사용하기 : 체계적인 조작 가능</li>
+    </ul>
+
+
+    <input type="button" value="생성하기" id="btn1">
+    <hr>
+    <div id="box"></div>
+
+    <h1>동적으로 태그(속성, PCDATA) 삭제</h1>
+
+    <ul id="list1">
+        <li>노트북</li>
+        <li><s>키보드</s></li>
+        <li>모니터</li>
+        <li>마우스</li>
+    </ul>
+
+    <script>
+    
+    var btn1 = document.getElementById("btn1");
+    var box = document.getElementById("box");
+
+    btn1.onclick = function(){
+
+        // 1번 방법
+        // box.innerHTML = "<img src='../images/catty01.png'>";
+
+        // -------------------------------------------------------------------------
+
+        // 2번 방법
+        // var img = document.createElement("img"); // <img>
+        // alert(img.noteType);
+        
+        // var src = document.createAttribute("src"); // src
+        // alert(src.nodeType);
+
+        // src.value = "../images/catty02.png"; // src="../images/catty02.png"
+
+        // img.setAttributeNode(src); // <img src="../images/cat.png">
+
+        // box.appendChild(img);
+
+        // -------------------------------------------------------------------------
+
+        // 3번 방법
+        // var img = document.createElement("img");
+
+        // img.setAttribute("src", "../images/catty03.png");
+
+        // box.appendChild(img);
+
+        // -------------------------------------------------------------------------
+
+        // <h1 align="center">제목</h1>
+
+        // var h1 = document.createElement("h1");
+
+        // var align = document.createAttribute("align");
+        // align.value = "center";
+
+        // h1.setAttributeNode(align);
+
+        // var data = document.createTextNode();
+        // data.value = "제목";
+        // // data.value = "제목";
+
+        // h1.appendChild(data);
+
+        // box.appendChild(h1);
+
+
+        // -------------------------------------------------------------------------
+        // 동적으로 태그 만드는 문제 풀 때 아래의 방법으로 풀 것!
+
+        var h1 = document.createElement("h1");
+
+        h1.setAttribute("align", "center");
+        // h1.innerText = "제목";
+        h1.textContent = "제목2";
+
+        box.appendChild(h1);
+
+        // -------------------------------------------------------------------------
+
+        // <a href="http://naver.com" title="네이버" target="_blank"><img src='../images/catty04.png'>네이버</a>
+        var a = document.createElement("a");
+        a.setAttribute("href", "http://naver.com");
+        a.setAttribute("title", "네이버");
+        a.setAttribute("target", "_black");
+
+        var img = document.createElement("img");
+        img.setAttribute("src", "../images/catty04.png");
+
+        a.appendChild(img);
+
+        box.appendChild(a);
+
+    };
+
+
+    var items = document.getElementById("list1").children;
+
+    for(var i=0; i<items.length; i++){
+        items[i].onclick = function(){
+
+            // alert(event.srcElement.innerText);
+
+            // 태그 삭제 : 부모 태그가 자식을 삭제한다. > 부모.removeChild(자식)
+            // document.getElementById("list1").removeChild(event.srcElement);
+            
+            // event.srcElement.parentNode.removeChild(event.srcElement);
+            
+            // 1. 기존 텍스트 알아내기
+            var txt = event.srcElement.innerText;
+
+            // 2. <s>태그 생성
+            var s = document.createElement("s");
+
+            // 3. <s>기존 텍스트</s>
+            s.innerText = txt;
+
+            // 4. <li>의 내용을 교체
+            event.srcElement.replaceChild(event.srcElement.firstChild);
+            event.srcElement.appendChild(s);
+        
+        
+        };
+    }
+
+    </script>
+
+</body>
+</html>
