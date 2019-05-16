@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{margin-bottom: 300px;}
+        fieldset { width: 200px; }
+        fieldset > div { margin: 5px; }
+
+        #tbl1, #tbl2 { border: 1px solid black; border-collapse: collapse; margin: 15px 2px; }
+        #tbl1 td { border: 1px solid black; width: 50px; height: 50px; }
+        
+        #tbl2 {width: 227px;}
+        #tbl2 th, #tbl2 td {border: 1px solid black; padding: 3px;}
+
+    </style>
+    <script>
+    
+    var selRow, selColumn, btnCreate, tbl1, tbody1;
+    var colorCode, colorName, tbody2;
+
+    window.onload = function() {
+
+        colorCode = document.getElementById("colorCode");
+        colorName = document.getElementById("colorName");
+        tbody2 = document.getElementById("tbody2");
+        
+        selRow = document.getElementById("selRow");
+        selColumn = document.getElementById("selColumn");
+        btnCreate = document.getElementById("btnCreate");
+        tbl1 = document.getElementById("tbl1");
+        tbody1 = document.getElementById("tbody1");
+
+        //셀렉트 박스 초기화
+        for (var i=0; i<20; i++) {
+            // var op = new Option();
+            // op.value = i + 1;
+            // op.text = i + 1;
+            // selRow.options.add(op);
+            var op = new Option(i+1, i+1); //BOM
+            selRow.options.add(op);
+        }
+
+        for (var i=0; i<10; i++) {
+            //DOM
+            //<select><option>..</select>
+            var op = "<option value='" + (i+1) + "'>" + (i+1) + "</option>";
+            selColumn.innerHTML += op;
+        }
+
+        btnCreate.onclick = function() { // 클릭 이벤트 생성
+            
+            // 기존 테이블 초기화 > 기존의 모든 <tr>+<td> 제거
+            tbody1.innerHTML = ""; // 빈 문자열로 바꾸면 지워짐
+         
+            //selRow.value
+            //selColumn.value
+
+            //<tr> x n + <td> x m
+            for (var i=0; i<selRow.value; i++) {
+                
+                var temp = "";
+                //<tr> 생성
+                //"<tr>"
+                temp = "<tr>";
+
+                for (var j=0; j<selColumn.value; j++) {
+                    temp += "<td>데이터</td>";
+                }
+
+                //"</tr>"
+                temp += "</tr>";
+
+                tbody1.innerHTML += temp; //<tr>
+            }
+
+        };
+
+
+
+        // 두 번째 예제
+        colorName.onkeyup = function(){
+            
+            // 보조키 유무 체크
+            // alert(event.ctrlKey);
+            // alert(event.shiftKey);
+            // alert(event.altKey);
+
+            // 엔터키를 입력
+            if(event.ctrlKey && event.keyCode == 13){ // Enter는 13번
+                // alert("enter")
+
+                // <tr><td>빨강</td><td bgcolor="#AAAAAA">#AAAAAA</td><tr>
+                var tr = "<tr>";
+                tr += "<td>";
+                tr += colorName.value;
+                tr += "</td>";
+                tr += "<td bgcolor = '" + colorCode.value + "'>";
+                tr += colorCode.value;
+                tr += "</td>";
+                tr += "<tr>";
+
+                tbody2.innerHTML += tr;
+
+                // 다음 색상을 입력하기 위해 초기화
+                colorCode.value = "#000000";
+                colorName.value = "";
+            }
+        
+        };
+
+    };//onload
+
+    </script>
+</head>
+<body>
+    <!-- ex36_Content.htm -->
+    <h1>테이블 행x열 생성하기</h1>
+
+    <fieldset>
+        <legend>행x열</legend>
+        <div><label>행 : </label><select id="selRow"></select></div>
+        <div><label>열 : </label><select id="selColumn"></select></div>
+        <div><input type="button" value="생성하기" id="btnCreate"></div>
+    </fieldset>
+
+    <table id="tbl1">
+        <tbody id="tbody1"></tbody>
+    </table>
+
+    <h1>테이블 행x열 추가하기</h1>
+
+    <fieldset>
+        <legend>입력</legend>
+        <div><label>색상코드 : </label><input type="color" id="colorCode"</div>
+        <div><label>색상명 : </label><input type="text" id="colorName"</div>
+    </fieldset>
+
+    <table id="tbl2">
+        <thead>
+            <tr>
+                <th>색상명</th>
+                <th>미리보기</th>
+            </tr>
+        </thead>
+        <tbody id="tbody2">
+            <tr>
+                <td>토마토</td>
+                <td bgcolor="tomato">#EC45AC</td>
+            </tr>
+            <tr>
+                <td>골드</td>
+                <td bgcolor="gold">#ACEF12</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>
+</html>
