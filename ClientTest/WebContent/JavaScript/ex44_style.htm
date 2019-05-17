@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		
+		#box1 { border: 1px solid black; width: 200px; height: 200px; background-color: gold; margin: 20px; }
+
+		#box1.one {
+			font-size: 4em;
+			width: 400px;
+			text-decoration: underline;
+		}
+
+		#box1.two {
+			background-color: tomato;
+			border: 10px dashed green;
+		}
+
+		#box1.three {
+			height: 400px;
+			text-align: center;
+		}
+
+	</style>
+	<script>
+	
+		var box1, btn1, btn2, btn3;
+
+		window.addEventListener("load", function() {
+
+			box1 = document.getElementById("box1");
+			btn1 = document.getElementById("btn1");
+			btn2 = document.getElementById("btn2");
+			btn3 = document.getElementById("btn3");
+
+			btn1.addEventListener("click", function() {
+				
+				// CSS 속성을 객체(태그)에 추가하기
+				// 1. CSS 속성을 하나씩 직접 제어하기
+				// - style 프로퍼티
+				// - 많이 사용
+				// box1.style.fontSize = "4em";
+				// box1.style.width = "300px";
+
+				// 2.1 CSS 속성을 집합으로 제어하기
+				// - CSS의 class 선택자 사용 > class 선택자를 미리 준비
+				// box1.className = "one";
+				// box1.setAttribute("class", "two");
+
+				// 2.2 CSS 속성을 class제어 + 다중 제어
+				// - 일부 클래스 조작을 안한다. > 귀찮고 손이 많이가서..
+				// <div class="one two three">
+				// box1.className = "one";
+				// box1.className += " two";
+				// box1.className += " three";
+
+				// box1.className = "one two three";
+
+				// alert(box1.className);
+
+				// 3. CSS 클래스 + 다중 제어
+				// - classList 프로퍼티 사용(배열)
+				box1.classList.add("one");
+				// box1.classList.add("two");
+				box1.classList.add("three");
+
+				
+			}); // btn1.click
+
+			btn2.addEventListener("click", function() {
+
+				// box1.style.fontSize = ""; //초기화
+				// box1.style.fontSize = "1em";
+
+				// box1.className = "";
+
+				// 일부 클래스 제거?? > 문자열 조작 > 어렵다.
+
+				// var str = "one two three";
+				// box1.className = "";
+
+				box1.classList.remove("one");
+
+			});
+
+			// Toggle Button 구현
+			btn3.addEventListener("click", function() {
+
+				if (btn3.value == "적용하기") {
+					// box1.className = "one";
+					btn3.value = "해제하기";
+				} else {
+					// box1.className = "";
+					btn3.value = "적용하기";
+				}
+
+				box1.classList.toggle("one");
+
+			});
+
+
+			document.getElementById("c4").addEventListener("click", function() {
+				document.getElementById("p1").style.fontFamily = "빙그레체";
+			});
+
+			document.getElementById("c5").addEventListener("click", function() {
+				document.getElementById("p1").style.fontFamily = "경기천년제목";
+			});
+
+			document.getElementById("c6").addEventListener("click", function() {
+				document.getElementById("p1").style.fontFamily = "맑은고딕";
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+	<!-- ex44_style.htm -->
+	<input type="button" value="CSS 속성 추가" id="btn1">
+	<input type="button" value="CSS 속성 삭제" id="btn2">
+	<input type="button" value="적용하기" id="btn3">
+	<hr>
+
+	<div id="box1">상자1</div>
+
+	<hr>
+
+	<h1>텍스트 서식</h1>
+
+	<div>
+		<input type="button" value="B" id="c1">
+		<input type="button" value="I" id="c2">
+		<input type="button" value="U" id="c3">
+		<input type="button" value="빙그레체" id="c4">
+		<input type="button" value="경기천년제목" id="c5">
+		<input type="button" value="맑은 고딕" id="c6">
+	</div>
+
+	<p id="p1">
+	[이데일리 원다연 기자] 지난해 리비아 무장괴한 세력에 피랍된 한국인 남성 1명이 피랍 315일만에 석방됐다. 
+
+	정의용 청와대 국가안보실장은 17일 “지난해 7월 리비아 남서부 ‘자발 하사우나’ 소재 수로관리회사 ANC사 캠프에서 무장괴한 10여명에게 납치된 우리국민 주 모씨가 피랍 315일 만에 우리 시간으로 어제 오후 무사히 석방됐다”고 밝혔다. 
+	
+	우리 정부는 피랍사건 발생 직후 외교부와 국가정보원을 중심으로 ‘범정부 합동 TF’를 구성해 리비아 정부를 비롯해 미국, 영국, 프랑스, 이탈리아 등 주요 우방국 정부와 공조하여 인질 억류지역 위치 및 신변안전을 확인하면서 석방 노력을 기울여왔다. 
+	
+	청와대는 특히 이번 우리 국민 구출에 UAE 정부와 모하메드 왕세제의 노력이 결정적인 역할을 했다고 평가했다. 정 실장은 “지난 2월말 서울에서 개최된 한-UAE 정상회담에서 모하메드 세제가 문재인 대통령에게 우리 국민이 석방될 수 있도록 지원을 약속한 것을 계기로, UAE 정부가 사건해결에 적극 나서면서 우리국민이 안전하게 귀환하는 성과를 이끌어 냈다”고 말했다. 
+	
+	다만 정 실장은 리비아에서 피랍된 국민 구출에 UAE가 어떤 채널을 통해 도움을 준 것인지에 대해서는 “신병 확보 과정에 대한 구체적 내용은 아직 보안을 요하기 때문에 상세히 언급할 수는 없다”며 “UAE 외교부가 리비아 군 당국과 긴밀히 협조하면서 석방을 이끌어낸 것 같다”고 설명했다. 
+	
+	이번 납치 세력은 리비아 남부지역에서 활동하는 범죄 집단으로 확인됐으며, 납치경위와 억류상황 등 구체적인 사항에 대해서는 조사를 진행중인 것으로 전해졌다. </p>
+
+</body>
+</html>

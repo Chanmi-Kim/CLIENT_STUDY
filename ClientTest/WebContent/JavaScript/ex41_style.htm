@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+	<style>
+		#box1 {
+			border: 1px solid black;
+			width: 200px;
+			height: 200px;
+			background-color: gold;
+		}
+
+		#big, #small {
+			font-weight: bols;
+			border: 1px solid #ccc;
+			padding: 5px;
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		var btn1, box1, big, small, content;
+
+		window.onload = function() {
+			
+			btn1 = document.getElementById("btn1");
+			box1 = document.getElementById("box1");
+			
+			big = document.getElementById("big");
+			small = document.getElementById("small");
+			content = document.getElementById("content");
+
+
+
+			box1.style.width = "200px"; // 자바 스크립트로 초기화
+
+			btn1.addEventListener("click", function() {
+
+				//J avaScript > CSS 조작
+				// - style 프로퍼티 사용
+
+				// 속성명 패턴
+				// 1. CSS 속성명을 그대로 사용한다.
+				// 2. '-' 가 들어있는 속성명 > 캐멀 표기법으로 전환한다.
+
+				// 속성값 패턴
+				// 1. 숫자(단위) > 문자열
+				// 2. 열거형 > 문자열
+				// 3. 색상 > 문자열
+				// 4. 함수(url()) > 문자열
+
+				// box1.style.color = "red"; // <div style="color:red;">
+				// box1.style.backgroundColor = "cornflowerblue"; // background-color : 불가능
+
+				// box1.style.fontSize = "3em";
+				// box1.style.align = "center"; // 없는 속성
+				// box1.style.backgroundImage = "url(../images/catty01.png)";
+
+				
+				// ** ??
+				// 자바스크립트로 CSS의 초기값을 읽으려고 할 때
+				// - 인라인 스타일 시트로 정의된 값만 읽기가 가능하다.
+				// - 자바스크립트로 값을 초기화한다.
+
+				// alert(box1.style.width);
+
+				// 버튼 클릭 > 박스 길이 증가
+				// alert(parseInt(box1.style.width) + 10);
+				// setInterval(function() {
+				// 	box1.style.width = parseInt(box1.style.width) + 1 + "px";
+				// }, 10); // 계속 길어짐
+
+
+			}); // btn1.click
+
+			content.style.fontSize = "16px";
+
+			big.addEventListener("click", function() {
+
+				content.style.fontSize = parseInt(content.style.fontSize) + 2 + "px";
+
+			});
+
+			small.addEventListener("click", function() {
+
+				content.style.fontSize = parseInt(content.style.fontSize) - 2 + "px";
+
+			});
+
+
+		};//window.load
+
+	</script>
+
+</head>
+<body>
+	<!-- ex41_style.htm -->
+	<h1>CSS 조작</h1>
+	<input type="button" value="버튼1" id="btn1">
+	<hr>
+	<div id="box1">상자</div>
+
+
+	<h1>뉴스</h1>
+	<div>
+		<span id="small">-</span>
+		<span id="big">+</span>
+	</div>
+	<p id="content">
+[이데일리 원다연 기자] 지난해 리비아 무장괴한 세력에 피랍된 한국인 남성 1명이 피랍 315일만에 석방됐다. 
+
+정의용 청와대 국가안보실장은 17일 “지난해 7월 리비아 남서부 ‘자발 하사우나’ 소재 수로관리회사 ANC사 캠프에서 무장괴한 10여명에게 납치된 우리국민 주 모씨가 피랍 315일 만에 우리 시간으로 어제 오후 무사히 석방됐다”고 밝혔다. 
+
+우리 정부는 피랍사건 발생 직후 외교부와 국가정보원을 중심으로 ‘범정부 합동 TF’를 구성해 리비아 정부를 비롯해 미국, 영국, 프랑스, 이탈리아 등 주요 우방국 정부와 공조하여 인질 억류지역 위치 및 신변안전을 확인하면서 석방 노력을 기울여왔다. 
+
+청와대는 특히 이번 우리 국민 구출에 UAE 정부와 모하메드 왕세제의 노력이 결정적인 역할을 했다고 평가했다. 정 실장은 “지난 2월말 서울에서 개최된 한-UAE 정상회담에서 모하메드 세제가 문재인 대통령에게 우리 국민이 석방될 수 있도록 지원을 약속한 것을 계기로, UAE 정부가 사건해결에 적극 나서면서 우리국민이 안전하게 귀환하는 성과를 이끌어 냈다”고 말했다. 
+
+다만 정 실장은 리비아에서 피랍된 국민 구출에 UAE가 어떤 채널을 통해 도움을 준 것인지에 대해서는 “신병 확보 과정에 대한 구체적 내용은 아직 보안을 요하기 때문에 상세히 언급할 수는 없다”며 “UAE 외교부가 리비아 군 당국과 긴밀히 협조하면서 석방을 이끌어낸 것 같다”고 설명했다. 
+
+이번 납치 세력은 리비아 남부지역에서 활동하는 범죄 집단으로 확인됐으며, 납치경위와 억류상황 등 구체적인 사항에 대해서는 조사를 진행중인 것으로 전해졌다. 
+
+아울러 현재 주 모씨는 정부에서 신병을 인수해 현지 공관의 보호하에 UAE 아부다비에 머물고 있으며 18일 귀국할 예정이다. 현지 병원에서 1차 검진 결과, 주 모씨의 건강에는 별다른 이상이 없는 것으로 전해졌다. 
+
+정 실장은 “정부는 우리국민 무사귀환을 위해 힘쓴 우방국 정부에 감사를 전하며, 특히 가능한 모든 지원을 아끼지 않으면서 주 모씨 석방에 결정적 역할을 해준 UAE 정부와 모하메드 왕세제에게 우리 정부와 문 대통령의 각별한 감사의 뜻을 전한다”고 밝혔다. 
+
+한편 이날 피랍 국민 구출 사실을 이례적으로 청와대에서 발표한 배경에 대해서도 정 실장은 “우리 정부 외교의 가장 큰 목적 중 하나는 사람의 목숨을 구하는 것”이라고 강조했다. 
+
+정 실장은 “주모씨가 납치된 직후 청해부대의 문무대왕함을 현지에 파견하고 리비아 앞바다에서 4개월 가까이 우리 함정을 보낼 정도로 우리 정부로서는 피랍 국민을 안전하게 석방하는데 총력을 견지해왔다”며 “한 분의 생명을 구한 것이지만 우리 정부 외교의 가장 큰 목적 중의 하나는 사람의 목숨을 구하는 것이라고 판단하고 있다”고 말했다. 
+
+또 피랍 국민의 구출 상황에 대해 문 대통령이 납치 직후부터 석방까지 각별히 챙겨왔다는 점을 강조했다. 정 실장은 “대통령께서 워낙 관심이 많으시고 직접 이 문제 해결을 위해서 여러 나라들과도 협의를 하셨고 지난 2월 모하메드 왕세제가 왔을 때도 특별히 요청을 드리고 해서 이 과정에 모하메드 왕세제가 특별히 개인적인 관심을 갖고 문제 해결을 위해 노력했다는 점을 다시 한번 강조한다”고 밝혔다. 
+</p>
+
+</body>
+</html>
