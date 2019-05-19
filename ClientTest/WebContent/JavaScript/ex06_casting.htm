@@ -10,65 +10,67 @@
     <!-- ex06_casting.htm -->
     <script>
     
-    //형변환, Type Casting
+    // 형변환, Type Casting
     // - 대부분의 상황에서 자바스크립트 자동으로 형변환을 한다. > 암시적 형변환
     // - ex) "100" * 2 -> 200
 
-    //형변환 함수
-    //1. int parseInt() ***
-    //2. float parseFloat()
+    // 형변환 함수
+    // 1. int parseInt() ***
+    // 2. float parseFloat()
 
         var n1 = 3.14;
-        console.log(parseInt(n1));
+        console.log(parseInt(n1)); // 출력 : 3
 
         n1 = 3.99;
-        console.log(parseInt(n1));
+        console.log(parseInt(n1)); // 출력 : 3
 
-        console.log(Math.round(n1)); //반올림
-        console.log(Math.ceil(n1)); //무조건 올림
-        console.log(Math.floor(n1)); //무조건 내림
+        console.log(Math.round(n1)); // 출력 : 4 (반올림)
+        console.log(Math.ceil(n1)); // 출력 : 4 (무조건 올림)
+        console.log(Math.floor(n1)); // 출력 : 3 (무조건 내림)
 
         var n2 = "100";
-        console.log(n2);
-        console.log(typeof n2);
+        console.log(n2); // 출력 : 100
+        console.log(typeof n2); // 출력 : string
 
         var n3 = parseInt(n2);
-        console.log(n3);
-        console.log(typeof n3);
+        console.log(n3); // 출력 : 100
+        console.log(typeof n3); // 출력 : number
 
-        console.clear();
+        console.clear(); // 콘솔창 지우기
 
         var n4 = "100점";
-        console.log(parseInt(n4));
+        console.log(parseInt(n4)); // 출력 : 100
 
         n4 = "100점입니다. 우하하 200점";
-        console.log(parseInt(n4));
+        console.log(parseInt(n4)); // 출력 : 100
 
         n4 = "오늘 시험을 봤는데 100점을 맞았다.";
-        console.log(parseInt(n4));
+        console.log(parseInt(n4)); // 출력 : NaN
 
-        //HTML & CSS > 수치 값
+        // => 숫자 + 문자열 : 맨 앞 문자열만 숫자로 인식
+
+        // HTML & CSS > 수치 값
         var width = "200px";
 
-        console.log(width * 2);
-        console.log(parseInt(width));
+        console.log(width * 2); // 출력 : NaN
+        console.log(parseInt(width)); // 출력 : 200
 
         width = "2.5em";
 
-        console.log(parseInt(width));
-        console.log(parseFloat(width));
+        console.log(parseInt(width)); // 출력 : 2
+        console.log(parseFloat(width)); // 출력 : 2.5
 
-        console.clear();
+        console.clear(); // 콘솔창 지우기
 
-        //isNaN()
+        // isNaN()
         // - is not a number?
 
         var age = "20"; //사용자 입력값
         age = "20세";
         age = 20;
         
-        //자료형X, 데이터 형태O
-        console.log(isNaN(age));
+        // 자료형 X, 데이터 형태 O
+        console.log(isNaN(age)); // 출력 : false
 
     </script>   
 </body>
