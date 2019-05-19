@@ -35,11 +35,11 @@
 
     f1();
     f1();
-    //f1;
+    // f1;
 
     function f2(name) {
         console.log("이름", name);
-        console.log(arguments); //내장 배열
+        console.log(arguments); // 내장 배열
         console.log(arguments[0]);
         console.log(arguments[1]);
         console.log(arguments[2]);
@@ -50,8 +50,8 @@
     f2();
     f2("홍길동", 20, "서울시", "학생");
 
-    //undefined : 변수 선언 후 초기화를 하지 않은 상태
-    //null : 명시적으로 비어있는 상태
+    // undefined : 변수 선언 후 초기화를 하지 않은 상태
+    // null : 명시적으로 비어있는 상태
     var num;
     console.log(num);
 
@@ -75,14 +75,14 @@
 
 
 
-    //함수 호이스팅, Function Hoisting
+    // 함수 호이스팅, Function Hoisting
     f4();
 
     function f4() {
         console.log("함수 호출 2");
     }
 
-    //변수 호이스팅, Variable Hoisting
+    // 변수 호이스팅, Variable Hoisting
     console.log("n", n);
 
     var n = 200;
@@ -107,12 +107,12 @@
     */
 
     function f5() {
-        var age = 20; //지역 변수(f5)
+        var age = 20; // 지역 변수(f5)
         console.log(age);
     }
 
     f5();
-    //console.log(age);
+    // console.log(age);
 
     var isCheck = true;
 
@@ -134,8 +134,8 @@
     console.log(email2);
 
     function f6() {
-        var gender1 = "남자"; //지역 변수
-        gender2 = "여자"; //지역 변수(X) > 전역 변수(O)
+        var gender1 = "남자"; // 지역 변수
+        gender2 = "여자"; // 지역 변수(X) > 전역 변수(O)
     }
 
     f6();
