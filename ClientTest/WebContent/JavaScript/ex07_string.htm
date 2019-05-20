@@ -10,49 +10,49 @@
     <!-- ex07_string.htm -->
     <script>
         
-        //문자열 함수
+        // 문자열 함수
         var txt = "Hello~ Hong~";
 
-        //1. 문자열 길이
-        console.log(txt.length);
+        // 1. 문자열 길이
+        console.log(txt.length); // 출력 : 12
 
-        //2. 검색
+        // 2. 검색
         // - indexOf()
         // - lastIndexOf()
-        console.log(txt.indexOf("~"));
-        console.log(txt.indexOf("~", 6));
-        console.log(txt.indexOf("?"));
-        console.log(txt.lastIndexOf("~"));
+        console.log(txt.indexOf("~")); // 출력 : 5 (" " 안에 있는 문자열 위치)
+        console.log(txt.indexOf("~", 6)); // 출력 : 11
+        console.log(txt.indexOf("?")); // 출력 : -1 (문자열 안에 해당 문자가 없을 때)
+        console.log(txt.lastIndexOf("~")); // 출력 : 11
 
-        //3. 대소문자 변환
-        console.log(txt.toUpperCase());
-        console.log(txt.toLowerCase());
+        // 3. 대소문자 변환
+        console.log(txt.toUpperCase()); // 대문자 변환
+        console.log(txt.toLowerCase()); // 소문자 변환
 
-        //4. 치환
-        // - 처음 만나는 요소만 치환다.(반복X)
+        // 4. 치환
+        // - 처음 만나는 요소만 치환된다. (반복X)
         // - 정규 표현식을 사용하면 반복 가능
-        console.log(txt.replace("Hong", "Lee"));
-        console.log(txt.replace("H", "A"));
-        console.log(txt.replace(/H/gi, "A"));
+        console.log(txt.replace("Hong", "Lee")); // 출력 : Hello~ Lee~
+        console.log(txt.replace("H", "A")); // 출력 : Aello~ Hong~ (한 번만 바뀜)
+        console.log(txt.replace(/H/gi, "A")); // 출력 : Aello~ Aong~ (자바 replace랑 같음)
 
-        //5. 범위 추출
+        // 5. 범위 추출
         console.log(txt);
-        console.log(txt.substring(2, 8));
-        console.log(txt.substring(2));
-        console.log(txt.substr(2, 8));
-        console.log(txt.substr(2));
+        console.log(txt.substring(2, 8)); // 출력 : llo~ H (2번째부터 8번째까지 가져옴(위치))
+        console.log(txt.substring(2)); // 출력 : llo~ Hong~ (2번째부터 끝까지)
+        console.log(txt.substr(2, 8)); // 출력 : llo~ Hon (2번째부터 8개 글자까지(개수))
+        console.log(txt.substr(2)); // 출력 : llo~ Hong~ (2번째부터 끝까지)
 
-        //6. 문자 추출
-        console.log(txt.charAt(0));
-        console.log(txt.charCodeAt(0));
-        console.log('A' > 'B');
+        // 6. 문자 추출
+        console.log(txt.charAt(0)); // 출력 : H
+        console.log(txt.charCodeAt(0)); // 출력 : 72
+        console.log('A' > 'B'); // 출력 : false
 
         var txt2 = "   하나  둘  ";
-        console.log("@" + txt2.trim() + "@");
+        console.log("@" + txt2.trim() + "@"); // 출력 : @하나 둘@
 
-        //7. 분할
+        // 7. 분할
         var names = "홍길동,아무개,하하하,호호호";
-        console.log(names.split(",")); //배열
+        console.log(names.split(",")); // 배열에 스플릿
 
     </script>
 </body>
