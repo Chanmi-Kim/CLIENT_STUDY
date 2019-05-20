@@ -18,7 +18,7 @@
             
             키 이벤트
             - onkeyXXX
-            - 폼 관련 태그들에게만 적용(포커스를 가져야 하기 때문에)
+            - 폼 관련 태그들에게만 적용 (포커스를 가져야 하기 때문에)
 
             1. onkeydown
                 - 키를 눌렀을 때 발생
@@ -38,15 +38,15 @@
 
             */
 
-            //txt1.onkeydown = f1;
+            // txt1.onkeydown = f1;
             txt1.onkeyup = f2;
-            //txt1.onkeypress = f3;
+            // txt1.onkeypress = f3;
 
 
-            //전역 키 이벤트(어떤 상태던 키 입력 감지한다.)
+            // 전역 키 이벤트 (어떤 상태던 키 입력 감지한다.)
             window.onkeydown = f4;
 
-        }//init
+        } // init
 
         function f4(event) {
             if (event.keyCode == 37) {
@@ -67,9 +67,9 @@
         }
 
         function f1(event) {
-            //console.log("keydown");
+            // console.log("keydown");
 
-            //눌린 키값(<> 문자 코드값)
+            // 눌린 키값 (<> 문자 코드값)
             console.log(event.keyCode);
 
             txt2.value = txt1.value;
@@ -82,7 +82,7 @@
         }
 
         function f3(event) {
-            //console.log("keypress");
+            // console.log("keypress");
             console.log(event.keyCode);
         }
 
