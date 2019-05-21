@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<!-- ex52_child.htm -->
+	<input type="button" value="테스트" onclick="test();">
+	<script>
+	
+	function test() {
+		//부모창에 접근하기
+		//alert(opener.num);
+		opener.num = 321;
+	}
+
+	</script>
+
+</body>
+</html>
