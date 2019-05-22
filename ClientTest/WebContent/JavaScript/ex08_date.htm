@@ -9,61 +9,61 @@
 <body>
     <!-- ex08_date.htm -->
     <script>
-        //날짜 시간 자료형
+        // 날짜 시간 자료형
         // - new Date()
         // - object
         // - Date 객체 
 
-        //현재 시각
-        var now = new Date(); //Calendar.getInstance();
-        console.log(now);
+        // 현재 시각
+        var now = new Date(); // Calendar.getInstance();
+        console.log(now); // 출력 : Mon May 20 2019 20:36:12 GMT+0900 (한국 표준시)
 
-        //c.get(Calendar.YEAR)
-        console.log(now.getYear());//1900년대
-        console.log(now.getFullYear());//2000년대
-        console.log(now.getMonth()); //월(0부터)
-        console.log(now.getDate()); //일
-        console.log(now.getDay()); //요일(일(0) ~ 토(6))
-        console.log(now.getHours()); //시간
-        console.log(now.getMinutes()); //분
-        console.log(now.getSeconds()); //초
-        console.log(now.getMilliseconds()); //밀리초
-        console.log(now.getTime()); //tick값(ms)
+        // c.get(Calendar.YEAR)
+        console.log(now.getYear());// 출력 : 119 - 1900년대
+        console.log(now.getFullYear());// 출력 : 2019 - 2000년대
+        console.log(now.getMonth()); // 출력 : 4 - 월(0부터)
+        console.log(now.getDate()); // 출력 : 20 - 일
+        console.log(now.getDay()); // 출력 : 1 - 요일(일(0) ~ 토(6))
+        console.log(now.getHours()); // 출력 : 20 - 시간
+        console.log(now.getMinutes()); // 출력 : 36 - 분
+        console.log(now.getSeconds()); // 출력 : 12 - 초
+        console.log(now.getMilliseconds()); // 출력 : 418 - 밀리초
+        console.log(now.getTime()); // 출력 : 1558352172418 - tick값(ms)
 
-        //출력 - 자바의 %tF, %tT, %tA 역할
-        console.log(now);//생략
-        console.log(now.toString()); //원형
-        console.log(now.toLocaleString()); //Locale > 현재 지역 설정
+        // 출력 - 자바의 %tF, %tT, %tA 역할
+        console.log(now); // 출력 : Mon May 20 2019 20:36:12 GMT+0900 (한국 표준시) - 생략
+        console.log(now.toString()); // 출력 : Mon May 20 2019 20:36:12 GMT+0900 (한국 표준시) - 원형
+        console.log(now.toLocaleString()); // 출력 : 2019. 5. 20. 오후 8:36:12 - Locale > 현재 지역 설정
         
-        console.log(now.toDateString());
-        console.log(now.toTimeString());
+        console.log(now.toDateString()); // 출력 : Mon May 20 2019
+        console.log(now.toTimeString()); // 출력 : 20:36:12 GMT+0900 (한국 표준시)
 
-        console.log(now.toLocaleDateString());
-        console.log(now.toLocaleTimeString());
+        console.log(now.toLocaleDateString()); // 출력 : 2019. 5. 20.
+        console.log(now.toLocaleTimeString()); // 출력 : 오후 8:36:12
 
-        console.clear();
+        console.clear(); // 콘솔창 지우기
 
-        //특정 시각 만들기
+        // 특정 시각 만들기
         var christmas = new Date();
         christmas.setMonth(11);
         christmas.setDate(25);
-        console.log(christmas.toLocaleString());
+        console.log(christmas.toLocaleString()); // 출력 : 2019. 12. 25. 오후 8:41:09
 
-        var birthday = new Date(1990, 5, 15);
-        var birthday2 = new Date(1990, 5, 15, 12, 20, 50);
+        var birthday = new Date(1990, 5, 15); 
+        var birthday2 = new Date(1990, 5, 15, 12, 20, 50); 
 
-        //연산
-        console.log(christmas - now); //ms
-        console.log(christmas.getTime() - now.getTime());
+        // 연산
+        console.log(christmas - now); // 출력 : 18921600009 - ms
+        console.log(christmas.getTime() - now.getTime()); // 출력 : 18921600009
 
-        console.log((christmas - now) / 1000 / 60 / 60 / 24);
+        console.log((christmas - now) / 1000 / 60 / 60 / 24); // 출력 : 219.00000010416667
 
-        //오늘 만난 커플 + 100일?
-        console.log(now.getTime() + (100 * 24 * 60 * 60 * 1000));
+        // 오늘 만난 커플 + 100일?
+        console.log(now.getTime() + (100 * 24 * 60 * 60 * 1000)); // 출력 : 1566992469519
 
         var ani = new Date();
         ani.setTime(now.getTime() + (100 * 24 * 60 * 60 * 1000));
-        console.log(ani.toLocaleString());
+        console.log(ani.toLocaleString()); // 출력 : 2019. 8. 28. 오후 8:41:09
 
     </script>
 </body>
