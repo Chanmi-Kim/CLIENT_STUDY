@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/my.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        body{margin-bottom: 300px;}
+        .box{ margin: 20px; }
+        #box3{ width: 400px; height: 400px; }
+
+        .helper{ border: 1px dotted black; }
+    </style>
+    <script>
+        $(document).ready(function(){
+
+            // Interactions > Resizable
+            $("#box1, hr, h1").resizable();
+
+            $("#box2").resizable({
+                animate: true, // 마우스 떼면 움직임
+                containment: "#box3", // 영역 지정
+                helper: "helper", // 안내선 지정
+                maxWidth: 300, // 최대 크기
+                maxHeight: 300,
+                minWidth: 100, // 최소 크기
+                minHeight: 100,
+                grid: [20, 40], // 가로 세로 증가치           
+                alsoResize: "#box1" // 같이 변함
+            });
+
+            // $("img").resizable({
+            //     aspectRatio: true, // 원본의 종횡비 유지
+            //     // 종횡비 옵션 유지, 가로 대 세로 비율
+            //     // aspectRatio: $(this).width() / $(this).height() 
+            //     // aspectRatio: 2 / 1 
+            //     // aspectRatio: 1 
+            //     resize: function(event, ui){
+            //         console.log(this, $(this).width(), $(this).height());
+            //     }
+            // });
+
+            $("#cat1").resizable({
+                alsoResize: ".cat", // cat 클래스 다같이 바뀜
+                aspectRatio: true // 종횡비 유지
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <!-- ex17_jqueryui.htm -->
+    <div id="box3" class="box red">
+        <div id="box2" class="box yellow"></div>
+    </div>
+
+    <div id="box1" class="box"></div>
+    <hr>
+    <img src="../images/catty01.png">
+    <h1 style="background-color: gold;">제목</h1> <!-- 내용물은 그대로, 면적은 크기 변경 가능 -->
+    <img src="../images/wall01.jpg">
+
+    <hr>
+    <img src="../images/catty01.png" id="cat1">
+    <hr>
+    <img src="../images/catty02.png" class="cat">
+    <img src="../images/catty03.png" class="cat">
+    <img src="../images/catty04.png" class="cat">
+    <img src="../images/catty05.png" class="cat">
+    <img src="../images/catty06.png" class="cat">
+
+</body>
+</html>
