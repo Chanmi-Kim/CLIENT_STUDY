@@ -17,37 +17,37 @@
 	<script>
 		$(document).ready(function() {
 
-			//var btn1 = document.getElementById("btn1");
-			//var $btn1 = $("#btn1");
+			// var btn1 = document.getElementById("btn1");
+			// var $btn1 = $("#btn1");
 
 			$("#btn1").click(function() {
 
-				//jQuery Effect Function
-				//1. hide(time), show(time), toggle(time)
-				//2. fadeOut(), fadeInt(), fadeToggle()
-				//3. slideDown(), slideUp(), slideToggle()
-				//4. animate()
+				// jQuery Effect Function
+				// 1. hide(time), show(time), toggle(time)
+				// 2. fadeOut(), fadeInt(), fadeToggle()
+				// 3. slideDown(), slideUp(), slideToggle()
+				// 4. animate()
 
-				//$("#box1").hide();
-				//$("#box1").fadeOut(2000);
+				// $("#box1").hide(); // slow, fast, ms -> 기본값: 0
+				// $("#box1").fadeOut(2000);
 				$("#box1").slideUp(2000);
-			});//btn1.click
+			});// btn1.click
 
 			$("#btn2").click(function() {
-				//$("#box1").show();
-				//$("#box1").fadeIn(2000);
+				// $("#box1").show();
+				// $("#box1").fadeIn(2000);
 				$("#box1").slideDown(2000);
 			});
 
 			$("#btn3").click(function() {
-				//$("#box1").toggle(1000);
-				//$("#box1").fadeToggle(2000);
+				// $("#box1").toggle(1000);
+				// $("#box1").fadeToggle(2000);
 				$("#box1").slideToggle(2000);
 			});
 
 
 			$("#cats .cat").click(function() {
-				//$("#cats .cat").hide("slow");
+				// $("#cats .cat").hide("slow");
 				$(this).hide("slow");
 			});
 
@@ -58,7 +58,7 @@
 				// 	width: 0,
 				// 	height: 0,
 				// 	opacity: 0
-				// }, 1000);
+				// }, 1000); // 1초에 걸쳐 사이즈를 0으로 만든다.
 
 				// $("#box1").animate({
 				// 	width: "toggle",
@@ -70,7 +70,7 @@
 				// 	width: "+=100px"
 				// }, 1000);
 
-				//jQuery 함수의 대부분은 현재 객체를 반환한다.(*****)
+				// jQuery 함수의 대부분은 현재 객체를 반환한다.(*****)
 				// $("#box1")
 				// 	.hide(1000)
 				// 	.show(1000)
@@ -83,7 +83,7 @@
 				// 	}, 1000);
 
 
-				//콜백 함수 지원(CallBack)
+				// 콜백 함수 지원(CallBack)
 				// - 사용자가 직접 호출하지 않고, 시스템(환경)에 의해서 호출하는 함수
 				$(".cat:eq(0)").hide(3000, function() {
 					$(".cat:eq(1)").hide(3000, function() {
@@ -92,7 +92,7 @@
 				});
 				
 
-			});//btn4.click
+			}); // btn4.click
 
 			$("#btn5").click(function() {
 
@@ -100,7 +100,7 @@
 
 			});
 			
-		});//ready
+		}); // ready
 	</script>
 
 </head>

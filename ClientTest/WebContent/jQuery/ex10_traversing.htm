@@ -21,29 +21,29 @@
 	<script>
 		$(document).ready(function() {
 
-			//자식 검색
+			// 자식 검색
 			// - DOM : firstChild, lastChild, childNodes, children
 			// - jQuery: children(), find() ****
 
-			//$("#me").children().css("border-color", "tomato");
-			//$("#me").children().children().css("border-color", "tomato");
+			// $("#me").children().css("border-color", "tomato");
+			// $("#me").children().children().css("border-color", "tomato");
 
-			//$("#me").find("*").css("border-color", "gold");
-			//$("#me").find("div").css("border-color", "gold");
-			//$("#me").find("div:eq(0)").css("border-color", "gold");
-			//$("#me").find("div:last").css("border-color", "gold");
+			// $("#me").find("*").css("border-color", "gold");
+			// $("#me").find("div").css("border-color", "gold");
+			// $("#me").find("div:eq(0)").css("border-color", "gold");
+			// $("#me").find("div:last").css("border-color", "gold");
 
 
 
-			//부모 검색
+			// 부모 검색
 			// - DOM: parentNode
 			// - jQuery: parent(), parents()
-			//$("#me").parent().css("border-color", "tomato");
-			//$("#me").parents().css("border-color", "tomato");
+			// $("#me").parent().css("border-color", "tomato"); // 직계부모
+			// $("#me").parents().css("border-color", "tomato"); // 직계조상
 
 
 
-			//형제 검색
+			// 형제 검색
 			// - DOM: previousSibling, nextSibling
 			// - jQuery: prev(), prevAll(), next(), nextAll(), siblings()
 
@@ -54,8 +54,6 @@
 			$("#me").nextAll().css("background-color", "gold");
 
 			$("#me").siblings().css("border-style", "dashed");
-
-
 
 		});
 	</script>
