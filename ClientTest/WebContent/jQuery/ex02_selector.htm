@@ -12,19 +12,19 @@
 	<script>
 		window.onload = function() {
 
-			//jQuery 함수 + CSS 선택자
-			//1. 태그 선택자
+			// jQuery 함수 + CSS 선택자
+			// 1. 태그 선택자
 			// - div {}
 
 			var result1 = document.getElementsByTagName("div");
-			//result1.style.color = "red";
+			// result1.style.color = "red"; // 순수 JavaScript에서는 동작 안함
 			for (var i=0; i<result1.length; i++) {
 				result1[i].style.color = "red";
 			}
 
 
-			//1. jQuery 함수의 반환값은 무조건 배열이다.
-			//2. jQuery 함수 반환값에 적용되는 모든 기능은 자동으로 루프 적용
+			// 1. jQuery 함수의 반환값은 무조건 배열이다.
+			// 2. jQuery 함수 반환값에 적용되는 모든 기능은 자동으로 루프 적용
 			var result2 = jQuery("div");
 
 			console.log(result2);
@@ -34,10 +34,10 @@
 			// 	result2[i].style.color = "blue";
 			// }
 
-			result2.css("color", "green");
+			result2.css("color", "green"); // jQuery에서는 가능
 			
 
-			//2. id 선택자
+			// 2. id 선택자
 			var box1 = document.getElementById("box1");
 			box1.style.backgroundColor = "yellow";
 
@@ -59,48 +59,50 @@
 
 			console.log(box3_1 == box3_2);
 
-			//box3_1.style.color = "orange";
-			//box3_2.css("color", "purple");
+			// box3_1.style.color = "orange";
+			// box3_2.css("color", "purple"); // 자료형이 다름
 
 			console.clear();
 			console.log(typeof box3_1);
 			console.log(typeof box3_2);
 
 			console.log(box3_1.constructor);
-			console.log(box3_2.constructor);
+			console.log(box3_2.constructor); // jQuery 함수로 만든 객체
 
-			//box3_1.css("color", "red");
-			//box3_2.style.color = "blue";
+			// box3_1.css("color", "red");
+			// box3_2.style.color = "blue";
+			// 둘다 에러뜸, 서로 호환 안됨
 
-			//HTMLDivElement -> jQuery
-			//jQuery(box3_1).css("color", "orange");
+			// HTMLDivElement -> jQuery
+			// jQuery(box3_1).css("color", "orange");
 
-			//jQuery -> HTMLDivElement
-			//box3_2[0].style.color = "blue";
+			// jQuery -> HTMLDivElement
+			// box3_2[0].style.color = "blue"; // 인덱스 표시 -> 형변환
 
 
 
-			//3. 클래스 선택자
-			jQuery(".box").css("font-size", "3em");
+			// 3. 클래스 선택자
+			jQuery(".box").css("font-size", "3em"); // 검색결과는 배열이고, 순환 루프를 돈다
+
 			
-			//4. 그룹 선택자
+			// 4. 그룹 선택자
 			jQuery("#box1, #box4").css("text-decoration", "underline");
 
 
-			//5. 자식 선택자
-			//6. 자손 선택자
+			// 5. 자식 선택자
+			// 6. 자손 선택자
 
 			jQuery("ul#list1 > li").css("color", "tomato");
 			jQuery("h1 > span").css("text-decoration", "underline");
 
 			jQuery("#list1 span").css("font-weight", "bold");
 
-			//7. 형제 선택자
-			//8. 인접 형제 선택자
+			// 7. 형제 선택자
+			// 8. 인접 형제 선택자
 			jQuery("li + li").css("font-style", "italic");
 			jQuery("li ~ li").css("font-style", "italic");
 
-			//9. CSS3 선택자
+			// 9. CSS3 선택자
 			jQuery("a").css("text-decoration", "none");
 			jQuery("a[title]").css("color", "red");
 			jQuery("a[title=네이버]").css("color", "blue");
