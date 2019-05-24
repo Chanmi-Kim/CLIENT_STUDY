@@ -19,32 +19,32 @@
 		$(document).ready(function() {
 
 			$("#cat1").draggable({
-				axis: "y"
+				axis: "y" // 가로축x 세로축y
 			});
 
-			$("#cat2").draggable({
-				containment: "#box2",
-				axis: "x"
+			$("#cat2").draggable({ 
+				containment: "#box2", // 컨테이너 지정
+				axis: "x" // x축으로만 움직일 수 있음
 			});
 
 			$("#cat3").draggable({
-				containment: "parent" //예약어
+				containment: "parent" // 예약어
 			});
 
 			$("#cat4").draggable({
-				cursor: "move",
-				cursorAt: {
-					top: -10,
-					left: -10
+				cursor: "move", // pointer : 손가락 모양, move : 가장 많이 사용하는 형태
+				cursorAt: { // 커서 위치 넣어줄 수 있음
+					top: -10, // 50
+					left: -10 // 50
 				}
 			});
 
 			$("#cat5").draggable({
-				snap: "#box5, #box4, .cat"  //magnetic
+				snap: "#box5, #box4, .cat" // magnetic
 			});
 
 			$("#cat6").draggable({
-				grid: [100, 100],
+				grid: [100, 100], // 128, 128 -> 끊김
 				axis: "x",
 				containment: "parent"
 			});
@@ -55,7 +55,7 @@
 </head>
 <body>
 	<!-- ex15_jqueryui.htm -->
-	(div#box$.box.yellow>img[src=../images/catty$$.png]#cat$.cat)*9
+	<!-- (div#box$.box.yellow>img[src=../images/catty$$.png]#cat$.cat)*9 -->
 	<div id="box1" class="box yellow"><img src="../images/catty01.png" alt="" id="cat1" class="cat"></div>
 	<div id="box2" class="box yellow"><img src="../images/catty02.png" alt="" id="cat2" class="cat"></div>
 
