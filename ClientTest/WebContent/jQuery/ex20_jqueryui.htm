@@ -1,343 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/my.css">
-    <script src="js/jquery-1.12.4.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <style>
-        * { outline: none; }
-        body { margin-bottom: 300px; }
-        
-        #a1 { width: 400px; }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/my.css">
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<style>
+		* { outline: none; }
+		body { margin-bottom: 300px; }
 
-        #p1 > div { transition: width 1s; 
-        transition-timing-function: linear; }
+		#a1 { width: 400px; }
 
-        #silder1{ margin: 20px; }
+		#p1 > div { transition: width 1s; transition-timing-function: linear; }
 
-        #c1, #c2, #c3, #c4, #c5{
-            margin: 20px;
-            width: 500px;
-            font-size: 34px;
-        }
+		#slider1 { margin: 20px; }
 
-        #slider2 { height: 500px; }
 
-        #tabs{
-            width: 300px;
-        }
+		#c1, #c2, #c3, #c4, #c5 {
+			margin: 20px;
+			width: 500px;
+			font-size: 34px;
+		}
 
-    </style>
-    <script>
-        $(document).ready(function(){
-            
-            $("#a1").accordion({
-                collapsible: true, // 옵션 : 접힘, 기본값: 하나는 열려있음
-                // minHeight: 600
-            });
+		#slider2 { height: 500px; }
 
-            $(".btn").button(); // 테마에 맞게 모양이 바뀜
+		#tabs {
+			width: 300px;
+		}
 
-            $("btn3").click(function(){
-                alert("클릭");
-            });
+	</style>
+	<script>
+		$(document).ready(function() {
 
-            // $(".cb, .rb").button(); // 버튼 스타일이 바뀜
-            $(".cb, .rb").checkboxradio();
+			$("#a1").accordion({
+				collapsible: true // 옵션 : 접힘, 기본값: 하나는 열려있음
+				// minHeight: 600
+			});
 
-            $("#set1, #set2, #set3").controlgroup();
 
-            $("#p1").progressbar({
-                value: 0
-                // value: 50,
+			$(".btn").button(); // 테마에 맞게 모양이 바뀜
+
+			$("#btn3").click(function() {
+				event.preventDefault();
+				alert("클릭");
+			});
+
+
+			//$(".cb, .rb").button(); // 버튼 스타일이 바뀜
+			$(".cb, .rb").checkboxradio();
+
+			$("#set1, #set2, #set3").controlgroup();
+
+			$("#p1").progressbar({
+				value: 0
+				// value: 50,
                 // max: 1000
+			});
 
-            });
+			$("#btn4").click(function() {
+				// $("#p1").progressbar({
+				// 	value: 20
+				// });
+				
+				var val = 0;
+				var timer = setInterval(() => {
 
-            $("#btn4").click(function(){
-                // $("#p1").progressbar({
-                // value: 20
-                // });
+					val += 1;
+					if (val > 80) clearInterval(timer);
 
-                var val = 0;
-                var timer = setInterval(() => {
-                    
-                    val += 1;
-                    if(val > 80) clearInterval(timer);
+					$("#p1").progressbar({
+						value: val
+					});
+				}, 50);	
 
-                    $("#p1").progressbar({
-                        value: val
-                    });
-                }, 1000);
-            });
+			});
 
-            $("btn5").click(function(){
-                $("#p1").progressbar({
-                    value: 80
-                });        
-            });
-
-
-
-            $("#date1").datepicker({
-                dateFormat: "yy-mm-dd",
-                // minDate: "-5", // 날짜
-                // maxDate: "+5" // 날짜
-                // minDate: "-1M -5D",
-                // maxDate: "1M 5D"
-                minDate: "2019-05-10",
-                maxDate: "2019-05-25"
-            });
-            // $("#date1").datepicker("option", "dateFormat", "yy-mm-dd");
-
-            $("#btn6").click(function(){
-                // 대화상자
-                // - alert(), confirm(), prompt()
+			$("#btn5").click(function() {
+				$("#p1").progressbar({
+					value: 80
+				});
+			});
 
 
-                // 대화 상자의 형태
-                // 1. modal
-                // - 팝업이 포커스를 독점한다.
-                // - 팝업의 업무가 종료되기 전까지는 부모창의 업무를 진행할 수 없다.
-                // 2. modeless
-                // - 팝업과 부모창의 포커스 전환이 자유롭다.
-                // - 팝업의 업무와 부모창의 업무가 서로 종속적이지 않을 때
-
-                $("#dialog1").dialog({ // 대화상자 팝업
-                    title: "대화상자 제목",
-                    width: 300,
-                    height: 250,
-                    draggable: false,  // 안 움직이는게 나음! 고정 팝업
-                    resizable: false,
-                    modal: true, // 대화상자 뒷배경 어둡게
-                    buttons: { // 프로퍼티 같은 이름 똑같은 것 2개 이상 못 만듦!
-                        // "text": function(){alert("test");},
-                        // "aaa": function(){alert("test");},
-                        // "bbb": function(){alert("test");}
-                        "확인": function(){
-                            alert("파일을 삭제했습니다.");
-                        },
-                        "취소": function(){
-                            $("#dialog1").dialog("close");    
-                        }
-                    }
-                });
-            });
-
-            $("select").selectmenu();
-
-            $("#slider1").slider({
-                min: 10,
-                max: 1000,
-                step: 10, // 증가 감소 10단위
-                animate: true, 
-                slide: function(event, ui){
-                    // console.log("슬라이딩");
-                    console.log(ui.value); // 숫자가 엄지의 위치를 나타냄
-                }
-            });
-
-            $("#c1, #c2, #c3").slider({
-                min: 0,
-                max: 255,
-                value: 255,
-                slide: function(event, ui){
-                    var r = $("#c1").slider("value");
-                    var g = $("#c2").slider("value");
-                    var b = $("#c3").slider("value");
-                    // console.log(r,g,b);
-
-                    $("#box").css("background-color"), "rgb(" + r + "," + g + "," + b + ")"; // 상자 색 바뀜
-
-                }
-            });
-
-            $("#c4, #c5").slider({
-                min: 100,
-                max: 1000,
-                value: 200, 
-                step: 50,
-                change: function(event, ui){ // slide는 한 박자 느림!
-                    var w = $("#c4").slider("value");
-                    var h = $("#c5").slider("value");
-                    $("#box").width(w);
-                    $("#box").height(h);
-                }
-            });
-
-            // 멀티 슬라이더 (엄지 버튼 2개) // 안쪽이 유효범위
-            $("#slider2").slider({
-                range: true,
-                min: 10000,
-                max: 1000000,
-                values: [300000, 700000],
-                step: 10000,
-                change: function(event, ui){
-                    // ui.value
-                    $("#price1 > span").text(ui.values[0]); 
-                    $("#price2 > span").text(ui.values[1]); 
-                }
-            });
-
-            $("#age").spinner({
-                min: 15,
-                max: 120,
-                step: 10
-            });
-
-            $("#num1").spinner({
-                numberFormat: "n",
-                step: 0.01
-            });
-
-            $("*[title]").tooltip({ // 풍선 도움말, 효과 없이 주기도 함
-                show: {
-                    effect: "slideDown",
-                    delay: 250
-                },
-                hide: { 
-                    effect: "explode", // 조각나서 사라짐
-                    delay: 250
-                },
-                track: true // 풍선 도움말이 따라다님
-            });
-
-             // auto : 탭중에 가장 큰 높이로 통일
-            $("#tabs").tabs({
-                heightStyle: "content",
-                event: "mouseover",
-                active: 1
-            });
-
-            $("#btn7").click(function(){
-                $("#tabs").tabs({
-                    active: 2
-                });
-            });
+			$("#date1").datepicker({
+				dateFormat: "yy-mm-dd",
+				//minDate: "-5", //날짜
+				//maxDate: "+5" //날짜
+				//minDate: "-1M -5D",
+				//maxDate: "1M 5D"
+				minDate: "2019-05-10",
+				maxDate: "2019-05-25"
+			});
+			//$("#date1").datepicker("option", "dateFormat", "yy-mm-dd");
 
 
-        }); // ready
-    </script>
+			$("#dialog1").hide();
+
+			$("#btn6").click(function() {
+				//대화상자
+				// - alert(), confirm(), prompt()
+
+				//대화 상자의 형태
+				//1. modal
+				// - 팝업이 포커스를 독점한다.
+				// - 팝업의 업무가 종료되기 전까지는 부모창의 업무를 진행할 수 없다.
+				//2. modeless
+				// - 팝업과 부모창의 포커스 전환이 자유롭다.
+				// - 팝업의 업무와 부모창의 업무가 서로 종속적이지 않을 때
+
+				$("#dialog1").dialog({ // 대화상자 팝업
+					title: "대화상자 제목",
+					width: 300,
+					height: 250,
+					draggable: false, // 안 움직이는게 나음! 고정 팝업
+					resizable: false,
+					modal: true, // 대화상자 뒷배경 어둡게
+					buttons: { // 프로퍼티 같은 이름 똑같은 것 2개 이상 못 만듦!
+						//"text": function() { alert("test"); },
+						//"aaa": function() { alert("test"); },
+						//"bbb": function() { alert("test"); }
+						"확인": function() {
+							alert("파일을 삭제했습니다.");
+						},
+						"취소": function() {
+							$("#dialog1").dialog("close");
+						}
+					}
+				});
+
+			});
+
+			$("select").selectmenu();
+
+
+
+
+			$("#slider1").slider({
+				min: 10,
+				max: 1000,
+				step: 10, // 증가 감소 10단위
+				//animate: true,
+				slide: function(event, ui) {
+					//console.log("슬라이딩");
+					console.log(ui.value); // 숫자가 엄지의 위치를 나타냄
+				}
+			});
+
+			$("#c1, #c2, #c3").slider({
+				min: 0,
+				max: 255,
+				value: 255,
+				slide: function(event, ui) {
+
+					var r = $("#c1").slider("value");
+					var g = $("#c2").slider("value");
+					var b = $("#c3").slider("value");
+					console.log(r, g, b);
+
+					$("#box").css("background-color"
+						, "rgb(" + r + "," + g + "," + b + ")"); // 상자 색 바뀜
+					
+				}
+			});
+
+
+			$("#c4, #c5").slider({
+				min: 100,
+				max: 1000,
+				value: 200,
+				step: 50,
+				change: function(event, ui) { // slide는 한 박자 느림!
+					var w = $("#c4").slider("value");
+					var h = $("#c5").slider("value");
+					$("#box").width(w);
+					$("#box").height(h);
+				}
+			});
+
+			//멀티 슬라이더(엄지 버튼 2개) // 안쪽이 유효범위
+			$("#slider2").slider({
+				orientation: "vertical",
+				range: true,
+				min: 10000,
+				max: 1000000,
+				values: [300000, 700000],
+				step: 10000,
+				change: function(event, ui) {
+					//ui.value
+					$("#price1 > span").text(ui.values[0]);
+					$("#price2 > span").text(ui.values[1]);
+				}
+			});
+
+
+			$("#age").spinner({
+				min: 15,
+				max: 120,
+				step: 10
+			});
+
+			$("#num1").spinner({
+				numberFormat: "n",
+				step: 0.01
+			});
+
+
+			$("*[title]").tooltip({ // 풍선 도움말, 효과 없이 주기도 함
+				show: {
+					effect: "slideDown",
+					delay: 250
+				},
+				hide: {
+					effect: "explode", // 조각나서 사라짐
+					delay: 250
+				},
+				track: true // 풍선 도움말이 따라다님
+			});
+
+
+			//auto: 탭중에 가장 큰 높이로 ,통일
+			$("#tabs").tabs({
+				heightStyle: "content",
+				event: "mouseover",
+				active: 1
+			});
+
+			$("#btn7").click(function() {
+				$("#tabs").tabs({
+					active: 2
+				});
+			});
+
+
+
+
+
+			// $("#c3").css("color", "red");
+			// $("#c3").css("font-size", "2em");
+
+			// $("#c3").css("color", "red").css("font-size", "2em");
+
+			// var obj = {
+			// 	"color":"red",
+			// 	"font-size":"2em"
+			// };
+
+			// $("#c3").css(obj);
+
+			// $("#c3").css({
+			// 	"color":"red",
+			// 	"font-size":"2em"
+			// });
+
+
+			// HashMap<String,Integer> map = new ...();
+			// map.put("one", 100);
+
+
+			// var map = [];
+			// map["one"] = 100;
+			// map["two"] = 200;
+
+			// console.log(map["one"]);
+
+		});//ready
+
+
+		var btns = document.getElementsByClassName("btn");
+
+		btns[i].onclick = function() {};
+
+
+		var btns = $(".btn");
+		btns.click(function(){});
+
+
+	</script>
+
 </head>
 <body>
-    <!-- ex20_jqueryui.htm -->
-    <h1>Widgets(=Controls)</h1>
-
-    <h2>Tabs</h2>
-
-    <input type="button" value="테스트" id="btn7">
-
-    <div id="tabs">
-        <ul>
-            <li><a href="#page1">HTML</a></li>
-            <li><a href="#page2">CSS</a></li>
-            <li><a href="#page3">JavaScript</a></li>
-        </ul>
-        <div id="page1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias debitis nihil corporis maxime. Quas accusantium alias labore eveniet velit quibusdam quo dolor, debitis cum unde, sint, itaque nam. Eos, sed.</div>
-        <div id="page2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi architecto vel unde commodi minima adipisci a reprehenderit ex voluptatum? Quaerat quia harum voluptatibus voluptatum ipsam quis earum esse voluptate inventore?</div>
-        <div id="page3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam nam animi voluptates debitis quod blanditiis hic aliquam harum vel inventore, cum facilis. Saepe dolor facere quo accusantium placeat eos fugit.</div>
-    </div>    
+	<!-- ex20_jqueryui.htm -->
+	<h1>Widgets(=Controls)</h1>
 
 
+	<h2>Tabs</h2>
+	
+	<input type="button" value="테스트" id="btn7">
 
-    <h2 title="스피너 예제입니다.">Spinner</h2>
-
-    <input type="number" step="0.1" title="실수를 입력하세요.">
-    <input type="text" id="age" title="나이를 입력하세요.">
-    <br>
-    <input type="text" id="num1" title="수량을 입력하세요.">
-
-    <h2>Slider</h2>
-
-    <div id="slider2"></div>
-    <div id="price1">최소 가격 : <span></span></div>
-    <div id="price2">최대 가격 : <span></span></div>
-
-
-    <h2>Slider</h2>
-
-    <div id="c1"></div>
-    <div id="c2"></div>
-    <div id="c3"></div>
-    <div id="c4"></div>
-    <div id="c5"></div>
-
-    <div id="box" class="box"></div>
+	<div id="tabs">
+		<ul>
+			<li><a href="#page1">HTML</a></li>
+			<li><a href="#page2">CSS</a></li>
+			<li><a href="#page3">JavaScript</a></li>
+		</ul>
+		<div id="page1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, quia? Atque neque eligendi ab veritatis, blanditiis excepturi non. Reiciendis obcaecati tempore similique incidunt! Totam ex deserunt neque nisi mollitia vero.</div>
+		<div id="page2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum libero molestias, iusto obcaecati magni, nulla incidunt at numquam, aperiam sint vitae praesentium iure. Dolores dolor recusandae nemo, atque in qui.Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum libero molestias, iusto obcaecati magni, nulla incidunt at numquam, aperiam sint vitae praesentium iure. Dolores dolor recusandae nemo, atque in qui.</div>
+		<div id="page3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis sint culpa quaerat ullam dolores libero molestias earum adipisci ab quod molestiae vel amet, quas consequatur asperiores similique recusandae inventore fuga.</div>
+	</div>
 
 
 
 
-    <select id="sel1">
-        <option>노트북</option>
-        <option>마우스</option>
-        <option>모니터</option>
-        <option>키보드</option>
-    </select>
+	<h2 title="스피너 예제입니다.">Spinner</h2>
+
+	<input type="number" step="0.1" title="실수를 입력하세요.">
+	<input type="text" id="age" title="나이를 입력하세요.">
+	<br>
+	<input type="text" id="num1" title="수량을 입력하세요.">
 
 
-    <h2>Dialog</h2>
 
-    <input type="button" value="확인" id="btn6">
-    <div id="dialog1">
-        안녕하세요.
-        <input type="button" value="확인">
-    </div>
+	<input type="checkbox" id="cb1"> <label for="cb1">동의</label>
 
 
-    <h2>Datepicker</h2>
-    <input type="text" id="date1">
+	<h2>Slider</h2>
 
-    <h2>Progressbar</h2>
-    <input type="button" value="클릭" id="btn4">
-    <div id="p1"></div>
-
-    <h2>Checkbox & Radio</h2>
+	<div id="slider2"></div>
+	<div id="price1">최소 가격 : <span></span></div>
+	<div id="price2">최대 가격 : <span></span></div>
 
 
-    <h3>취미를 선택하세요.</h3>
 
-    <div id="set1">
-        <label for="cb1">코딩</label>
-        <input type="checkbox" id="cb1" class="cb">
-        <label for="cb2">낮잠자기</label>
-        <input type="checkbox" id="cb2" class="cb">
-        <label for="cb3">먹기</label>
-        <input type="checkbox" id="cb3" class="cb">
-    </div>
+	<h2>Slider</h2>
 
-    <h3>성별을 선택하세요.</h3>
+	<div id="c1"></div>
+	<div id="c2"></div>
+	<div id="c3"></div>
+	<div id="c4"></div>
+	<div id="c5"></div>
 
-    <div id="set2">
-        <label for="rb1">남자</label>
-        <input type="radio" id="rb1" class="rb" name="rb">
-        <label for="rb2">여자</label>
-        <input type="radio" id="rb2" class="rb" name="rb">
-    </div>
+	<div id="box" class="box"></div>
 
 
-    <h2>Accordion</h2>
+	
+	<h2>Slider</h2>
 
-    <div id="a1">
-        <h3>HTML</h3>
-        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit fuga tenetur quis perferendis rerum temporibus necessitatibus numquam harum iste odit laudantium explicabo, fugiat voluptate possimus aut sapiente accusamus? Nulla, voluptate.</div>
-        <h3>CSS</h3>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolorum aliquam veniam sint exercitationem numquam necessitatibus tempore animi adipisci ducimus placeat maxime architecto cumque quo illo velit hic quidem quia.</div>
-        <h3>JavaScript</h3>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas repellendus eum cumque a obcaecati voluptatum, ratione eaque optio odio unde iure et rerum, doloremque delectus impedit ex voluptate ipsa. Omnis!</div>
-    </div>
+	<div id="slider1"></div>
 
 
-    <h2>Button</h2>
 
-    <input type="button" value="등록하기" id="btn1" class="btn">
-    <input type="button" value="취소하기" id="btn2" class="btn">
-    <a href="http://naver.com" class="btn">네이버</a>
-    <a href="#" class="btn" id="btn3">확인</a> <!-- a태그에 onclick 걸어서 많이 씀, #: 현재 페이지 꼭대기로 감. 빠지면 에러남 -->
+
+
+	<h2>Select Box</h2>
+
+	<select id="sel1">
+		<option>노트북</option>
+		<option>마우스</option>
+		<option>모니터</option>
+		<option>키보드</option>
+	</select>
+
+
+	<h2>Dialog</h2>
+
+	<input type="button" value="확인" id="btn6">
+	<div id="dialog1">
+		안녕하세요.
+		<!-- <input type="button" value="확인"> -->
+	</div>
+
+
+
+
+	<h2>Datepicker</h2>
+
+	<input type="text" id="date1">
+
+
+
+
+
+	<h2>Progressbar</h2>
+	<input type="button" value="클릭" id="btn4">
+	<input type="button" value="클릭" id="btn5">
+	<div id="p1"></div>
+
+
+	<h2>Checkbox & Radio</h2>
+
+	<h3>취미를 선택하세요.</h3>
+
+	<div id="set1">
+		<label for="cb1">코딩</label>
+		<input type="checkbox" id="cb1" class="cb">
+		<label for="cb2">낮잠자기</label>
+		<input type="checkbox" id="cb2" class="cb">
+		<label for="cb3">먹기</label>
+		<input type="checkbox" id="cb3" class="cb">
+	</div>
+
+	<h3>성별을 선택하세요.</h3>
+	<div id="set2">
+		<label for="rb1">남자</label>
+		<input type="radio" id="rb1" class="rb" name="rb">
+		<label for="rb2">여자</label>
+		<input type="radio" id="rb2" class="rb" name="rb">
+	</div>
+
+
+	<h2>Accordion</h2>
+
+	<div id="a1">
+		<h3>HTML</h3>
+		<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit doloremque animi praesentium quisquam illo libero aliquam voluptatibus tempora dicta, ut modi nemo labore itaque ad velit quaerat consequatur facilis necessitatibus?</div>
+		<h3>CSS</h3>
+		<div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem quas nihil, ad quaerat quod quibusdam rem debitis a veniam sed laudantium, dicta, ipsam sunt tempora beatae voluptates et tempore eos.</div>
+		<h3>JavaScript</h3>
+		<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam sit totam, explicabo molestiae aperiam in hic eos repellat sint. Officia modi ipsa vero laborum aspernatur delectus consequatur ab odio dolor.</div>
+	</div>
+
+
+
+	<h2>Button</h2>
+	
+	<div id="set3">
+		<input type="button" value="등록하기" id="btn1" class="btn">
+		<input type="button" value="취소하기" id="btn2" class="btn">
+	</div>
+	<a href="http://naver.com" class="btn">네이버</a>
+	<a href="#" class="btn" id="btn3">확인</a>
+	<!-- a태그에 onclick 걸어서 많이 씀, #: 현재 페이지 꼭대기로 감. 빠지면 에러남 -->
 
 </body>
 </html>
