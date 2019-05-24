@@ -11,7 +11,7 @@
 		
 		body {
 			margin: 0px;
-			transition: all 1.5s;
+			transition: all 1.5s; /* 서서히 변하는 효과 */
 		}
 
 		#main {
@@ -30,10 +30,10 @@
 	<script>
 		$(document).ready(function() {
 
-			//CSS의 position과 상관없이 좌표를 반환
+			// CSS의 position과 상관없이 좌표를 반환
 			console.log($("#begin").position().top);
 			console.log($("#begin").position()["top"]);
-
+			// => 둘다 가능
 		});
 
 		$(document).scroll(function() {
@@ -54,6 +54,9 @@
 <body>
 	<!-- ex12_scroll.htm -->
 	<div id="main">
+		<!-- ((h1>lorem10)+(p>lorem)*3)*30 -->
+        <!-- img[src='../images/wall$$.jpg']*20 -->
+        <!-- ((h1>lorem10)+(p>lorem)*3)*30 -->
 		<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, iste.</h1>
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat cupiditate, quas sed temporibus explicabo debitis error ducimus omnis delectus unde voluptate quis aperiam, qui voluptates ipsum ab repellendus autem dignissimos.</p>
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, placeat? Dolore, dignissimos voluptatem excepturi eveniet aliquid assumenda officia? Aliquam unde molestias nam ad deleniti maiores eos vero sit debitis tempore?</p>

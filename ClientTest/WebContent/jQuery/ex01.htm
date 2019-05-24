@@ -7,18 +7,24 @@
 	<title>Document</title>
 	<!-- 
 		jQuery 설치 방법 
-		1. 파일을 직접 서버에 복사 + 참조
+		1. 파일을 직접 서버에 복사 + 참조 
+		   (안정적, 인터넷이 안되도 공부할 수 있음 but 트래픽 대량 유입시 다운 필요)
 		2. 파일을 외부 서버으로부터 복사 + 참조
-			- CDN
+			- CDN (Content Delievery Network)
 	-->	
-	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/jquery-1.12.4.js">
+	
+	// alert("test"); 
+	// 스크립트는 한 가지 용도로만 사용할 수 있음. 2가지 이상 사용시 명령어 무시됨
+	
+	</script>
 	<!-- <script
   src="https://code.jquery.com/jquery-1.12.4.js"
   integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
   crossorigin="anonymous"></script> -->
 
 	<script>
-		//console.log(jQuery);
+		//console.log(jQuery); // jQuery라는 함수. 압도적으로 중요함
 		/*
 		
 		jQuery
@@ -51,15 +57,15 @@
 
 	<script>
 	
-	//1. BOM - BOM 트리 사용
+	// 1. BOM - BOM 트리 사용
 	var btn1_1 = window.document.all["btn1"];
 
-	//2. DOM - get 메소드 or DOM 트리 사용
+	// 2. DOM - get 메소드 or DOM 트리 사용
 	var btn1_2 = document.getElementById("btn1");
 
-	//3. jQuery- CSS 선택자 사용
-	var btn1_3 = jQuery("#btn1");
-	btn1_3.css("color", "red");
+	// 3. jQuery- CSS 선택자 사용
+	var btn1_3 = jQuery("#btn1"); // btn1을 찾아줌
+	btn1_3.css("color", "red"); // 속성명, 속성값
 
 	</script>
 

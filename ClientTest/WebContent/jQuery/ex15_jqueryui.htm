@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/my.css">
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<style>
+		body { margin-bottom: 300px; }
+
+		.box { margin: 20px; width: 500px; height: 300px; }
+
+	</style>
+	<script>
+		$(document).ready(function() {
+
+			$("#cat1").draggable({
+				axis: "y" // 가로축x 세로축y
+			});
+
+			$("#cat2").draggable({ 
+				containment: "#box2", // 컨테이너 지정
+				axis: "x" // x축으로만 움직일 수 있음
+			});
+
+			$("#cat3").draggable({
+				containment: "parent" // 예약어
+			});
+
+			$("#cat4").draggable({
+				cursor: "move", // pointer : 손가락 모양, move : 가장 많이 사용하는 형태
+				cursorAt: { // 커서 위치 넣어줄 수 있음
+					top: -10, // 50
+					left: -10 // 50
+				}
+			});
+
+			$("#cat5").draggable({
+				snap: "#box5, #box4, .cat" // magnetic
+			});
+
+			$("#cat6").draggable({
+				grid: [100, 100], // 128, 128 -> 끊김
+				axis: "x",
+				containment: "parent"
+			});
+
+		});
+	</script>
+
+</head>
+<body>
+	<!-- ex15_jqueryui.htm -->
+	<!-- (div#box$.box.yellow>img[src=../images/catty$$.png]#cat$.cat)*9 -->
+	<div id="box1" class="box yellow"><img src="../images/catty01.png" alt="" id="cat1" class="cat"></div>
+	<div id="box2" class="box yellow"><img src="../images/catty02.png" alt="" id="cat2" class="cat"></div>
+
+	<div id="box3" class="box yellow">
+		<img src="../images/catty03.png" alt="" id="cat3" class="cat">
+	</div>
+
+	<div id="box4" class="box yellow"><img src="../images/catty04.png" alt="" id="cat4" class="cat"></div>
+	<div id="box5" class="box yellow"><img src="../images/catty05.png" alt="" id="cat5" class="cat"></div>
+	<div id="box6" class="box yellow"><img src="../images/catty06.png" alt="" id="cat6" class="cat"></div>
+	<div id="box7" class="box yellow"><img src="../images/catty07.png" alt="" id="cat7" class="cat"></div>
+	<div id="box8" class="box yellow"><img src="../images/catty08.png" alt="" id="cat8" class="cat"></div>
+	<div id="box9" class="box yellow"><img src="../images/catty09.png" alt="" id="cat9" class="cat"></div>
+
+</body>
+</html>
