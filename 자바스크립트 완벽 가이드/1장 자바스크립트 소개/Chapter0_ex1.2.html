@@ -1,0 +1,104 @@
+<!--
+Chapter0_ex1.2.js
+1.2 클라이언트 측 자바스크립트
+-->
+
+<html>
+<head>
+<script src="library.js"></script> <!-- 자바스크립트로 작성된 라이브러리를 포함시킨다. -->
+</head>
+<body>
+<p>p 태그는 HTML에서 문단을 뜻한다.</p>
+<script>
+// 그리고 이 부분은 HTML 파일 안에 내장한 클라이언트 측 자바스크립트의 일부다.
+
+
+function moveon() {
+    // 모달 대화상자를 출력해서 사용자에게 질문을 한다.
+    var answer = confirm("Ready to move on?");
+    // 확인 버튼을 누를 경우, 브라우저는 새 페이지를 출력한다.
+    if (answer) window.location = "http://google.com";
+}
+// 위 스크립트를 1분(60,000밀리초) 후에 실행한다.
+setTimeout(moveon, 60000);
+
+
+// 문서의 디버깅영역에 메시지를 출력한다.
+// 만약 디버깅 영역이 존재하지 않으면 생성한다.
+function debug(msg) {
+    // id 속성을 사용하여 문서에서 디버깅을 위한 영역을 찾는다.
+    var log = document.getElementById("debuglog");
+
+    // 만약 id 속성이 "debuglog"인 엘리먼트가 없으면 임의로 생성한다.
+    if (!log) {
+        log = document.createElement("div");    // 새 <div> 엘리먼트를 만든다.
+        log.id = "debuglog";                    // 엘리먼트의 id 값을
+                                                // "debuglog"로 설정한다.
+        log.innerHTML = "<h1>Debug Log</h1>"    // 처음 보여줄 엘리먼트의
+                                                // 내용을 정의한다.
+        document.body.appendChild(log);         // 문서의 끝에 엘리먼트를 추가한다.
+    }
+
+    // 메시지를 <pre> 엘리먼트의 텍스트 노드로 설정한 후,
+    // 디버깅 영역에 출력한다.
+    var pre = document.createElement("pre");    // <pre> 엘리먼트를 만든다.
+    var text = document.createtextNode(msg);    // 텍스트 노드를 하나 만들고,
+                                                // 초기 값을 msg로 설정한다.
+    pre.appendChild(txt);   // 텍스트 노드를 <pre>에 추가한다.
+    log.appendChild(pre);   // <pre> 엘리먼트를 디버깅 영역에 추가한다.
+}
+
+
+function hide(e, reflow) {              // 엘리먼트 e의 스타일을 스크립트를 사용해 숨긴다.
+    if (reflow) {                       // 두 번째 인자가 true면
+        e.style.display = "none"        // 엘리먼트가 차지한 공간을 숨긴다.
+    }
+    else {                              // 두 번째 인자가 true가 아니면
+        e.style.visivility = "hidden";  // 엘리먼트가 차지한 공간을 그대로 두고,
+                                        // 내용을 숨긴다.
+    }
+}
+function highlight(e) {                 // 엘리먼트 e에 CSS 클래스를 설정해서
+                                        // 하이라이트 효과를 설정한다.
+    // 속성을 정의하거나 이미 정의되어 있는 class 속성에 새로운 값을 추가한다.
+    // 기존에 hilite라는 클래스가 CSS 스타일시트에 정의되어 있다고 가정한다.
+    if (!e.className) e.className = "hilite";
+    else e.className += "hilite";
+}
+
+
+// "load" 이벤트는 문서 로딩이 완료될 때 발생한다. 보통은 자바스크립트 코드를
+// 실행하기 전에 이 이벤트가 발생하기를 기다려야 한다.
+window.onload = function() {            // 문서 로딩이 완료되면 이 함수를 실행한다.
+    // 모든 <img> 태그를 찾는다.
+    var images = document.getElementsByTagName("img");
+
+    // 모든 <img> 태그에 '클릭' 행위가 일어날 때,
+    // 해당 이미지를 숨기는 이벤트 핸들러를 등록한다.
+    for(var i=0; i < images.length; i++) {
+        var image = images[i];
+        if (image.eddEventListner)  // 핸들러를 등록하는 또 다른 방법
+            image.addEventlistener("click", hide, false);
+        else                        // IE8이나 이전 버전용
+            image.attachEvent("onclick", hide);
+    }
+
+    // <img> 태그에 등록할 이벤트 핸들러 함수
+    function hide(event) { event.target.style.visibility = "hidden"; }
+
+
+    function debug(msg) {
+        var log = $("#debuglog");           // 메시지가 출력될 엘리먼트를 찾는다.
+        if (log.length == 0) {              // 해당 엘리먼트가 존재하지 않으면 생성한다.
+            log = $("<div id='debuglog'><h1>Debug Log</h1></div>");
+            log.appendTo(document.body);    // 생성한 엘리먼트를 문서 맨 하단에 추가한다.
+        }
+        log.append($("<pre/>").text(msg));  // <pre> 안에 메시지를 생성하여
+                                            // 출력될 영역에 추가한다.
+    }
+
+}
+</script>
+<p>그 밖에 다른 HTML 태그가 올 수 있다.</p>
+</body>
+</html>
