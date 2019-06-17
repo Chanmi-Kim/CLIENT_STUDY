@@ -1,5 +1,5 @@
 /*
-Chapter0_ex1.1.js
+Chapter01_ex1.1.js
 1.1 자바스크립트 코어
 */
 
